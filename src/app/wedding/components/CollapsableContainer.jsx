@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const CollapsableContainer = ({ title, description, children, className = '' }) => {
+const CollapsableContainer = (props) => {
+  const { title, description, children, className = '' } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
