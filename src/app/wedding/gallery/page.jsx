@@ -9,8 +9,8 @@ const Page = () => {
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
       <Navbar />
-      <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-start'>
-        <span>Come back after the Wedding to see the photos.</span>
+      <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
+        <span className='mt-20 text-2xl text-wedding-secondary-shadow'>Come back after the Wedding to see the photos.</span>
       </div>
     </main>
   )

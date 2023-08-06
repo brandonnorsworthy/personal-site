@@ -14,7 +14,7 @@ const questions = [
   },
   {
     question: 'What amenities are available in the beach houses (kitchen, Wi-Fi, laundry, etc.)?',
-    answer: '⛔️ Missing',
+    answer: 'They feature a full kitchen, Wi-Fi, a washer and dryer for laundry needs, access to a neighborhood pool, and each house has its own golf cart for transportation.',
   },
   {
     question: 'Do I need to bring my own beach or bath towels, or will they be provided?',
@@ -58,7 +58,7 @@ const questions = [
   },
   {
     question: 'For the non-hosted meals, are BBQ grills available at the beach houses?',
-    answer: '⛔️ Missing',
+    answer: 'While the beach houses don\'t have BBQ grills directly, there are grills available for use at the neighborhood pool area.',
   },
   {
     question: 'Will there be any organized group activities or outings, such as boat trips or beach tours?',
