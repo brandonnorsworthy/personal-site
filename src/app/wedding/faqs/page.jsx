@@ -1,6 +1,10 @@
+import CollapsableContainer from "../components/CollapsableContainer";
 import Navbar from "../components/Navbar";
+import QuestionAnswerTiles from "../components/QuestionAnswerTiles";
+
+import weddingFAQ from "../data/weddingFAQ";
+import stayAndActiviesFAQ from "../data/stayAndActiviesFAQ";
 import generalFAQ from "../data/generalFAQ";
-import housingFAQ from "../data/housingFAQ";
 
 export const metadata = {
   title: 'FAQs',
@@ -12,28 +16,27 @@ const Page = () => {
     <main className='min-h-[85vh] flex flex-col items-center'>
       <Navbar />
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-start'>
-        <span>"Wedding Details": Questions specifically about the wedding day.</span>
-        {
-          generalFAQ.map((question, index) => {
-            return (
-              <div className='flex flex-col' key={index + question.question}>
-                <span className='font-bold'>{question.question}</span>
-                <span className='ml-4'>{question.answer}</span>
-              </div>
-            )
-          })
-        }
-        <span>"Stay & Activities": Questions about the beach houses, meals, and activities during the weekend.</span>
-        {
-          housingFAQ.map((question, index) => {
-            return (
-              <div className='flex flex-col' key={index + question.question}>
-                <span className='font-bold'>{question.question}</span>
-                <span className='ml-4'>{question.answer}</span>
-              </div>
-            )
-          })
-        }
+        <CollapsableContainer
+          title='Wedding Details'
+          description='Questions specifically about the wedding day.'
+          className='mt-8 w-full bg-wedding-secondary'
+          children={
+            <QuestionAnswerTiles questions={weddingFAQ} />
+          } />
+        <CollapsableContainer
+          title='Stay & Activities'
+          description='Questions about the beach houses, meals, and activities during the weekend.'
+          className='mt-8 w-full bg-wedding-secondary'
+          children={
+            <QuestionAnswerTiles questions={stayAndActiviesFAQ} />
+          } />
+        <CollapsableContainer
+          title='General'
+          description='Other miscellaneous questions.'
+          className='mt-8 w-full bg-wedding-secondary'
+          children={
+            <QuestionAnswerTiles questions={generalFAQ} />
+          } />
       </div>
     </main>
   )
