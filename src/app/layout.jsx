@@ -17,7 +17,7 @@ const RootLayout = ({ children }) => {
         {children}
         <footer className='w-full flex justify-center'>
           <div className='p-8 w-full md:w-[85%] lg:w-[75%] xl:w-[1000px]'>
-            <span>made by brandon norsworthy ©️ 2024 ✌️</span>
+            <span>made by <Link href="https://www.brandonnorsworthy.com" className='underline font-bold'>brandon norsworthy</Link> ©️ 2024 ✌️</span>
             <div>
               <Link
                 href="https://github.com/brandonnorsworthy/personal-site"

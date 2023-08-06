@@ -19,7 +19,7 @@ export default [
     events: [
       {
         time: '12:00 PM',
-        title: '"Behind the Scenes" Bridal Party Preparation',
+        title: 'Bridal Party Preparation',
       },
       {
         time: '6:00 PM',

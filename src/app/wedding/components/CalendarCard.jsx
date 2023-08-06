@@ -15,7 +15,7 @@ const CalendarCard = (props) => {
             return (
               <div className={`${index > 0 ? 'mt-2' : ''} flex flex-col`} key={index + event.time}>
                 <div className='flex justify-start items-center'>
-                  <div className='bg-wedding-secondary w-2 h-2 rounded-xl'></div>
+                  <div className='bg-wedding-primary-shadow w-2 h-2 rounded-xl'></div>
                   <span className='ml-1 text-wedding-gray'>{event.time}</span>
                 </div>
                 <span>{event.title}</span>

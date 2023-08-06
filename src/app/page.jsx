@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <main className="flex bg-white min-h-screen flex-col items-center justify-center">
       <div>
-        <Link href="/wedding" className='underline'>Wedding</Link>
+        <Link href="/wedding" className='underline'>looking for wedding?</Link>
       </div>
     </main>
   )
