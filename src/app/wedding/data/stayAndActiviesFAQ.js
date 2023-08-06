@@ -1,91 +1,72 @@
 const questions = [
   {
     question: 'Which beach house will I be staying in, and who will be my housemates?',
-    answer: 'nothing',
+    answer: 'Click to Visit the Travel & Stay page for more information.',
+    visit: '/wedding/travel',
   },
   {
     question: 'What are the check-in and check-out times for the beach houses?',
-    answer: 'nothing',
+    answer: 'Check-in for the beach houses is at 4:00 PM CST on Friday, October 25, 2024, and check-out is at 12:00 PM CST on Monday, October 28, 2024.',
   },
   {
     question: 'How close are the beach houses to the actual wedding ceremony location?',
-    answer: 'nothing',
+    answer: 'The beach houses are approximately 3 miles (about 9 minutes) away from the wedding ceremony location, situated along Highway 30A. Each beach house is equipped with a golf cart, which guests can use to easily commute to the ceremony.',
   },
   {
     question: 'What amenities are available in the beach houses (kitchen, Wi-Fi, laundry, etc.)?',
-    answer: 'nothing',
+    answer: '⛔️ Missing',
   },
   {
     question: 'Do I need to bring my own beach or bath towels, or will they be provided?',
-    answer: 'nothing',
+    answer: 'Towels are provided at the beach houses. However, based on Madison and Brandon\'s personal preference, it\'s recommended to bring your own beach towels for the best comfort.',
   },
   {
     question: 'Are there any activities or events planned for the days we\'re not having the hosted dinners?',
-    answer: 'nothing',
+    answer: 'On Sunday, the current plan is to enjoy the beach during the day and gather at Baytowne Wharf in the evening. However, this is subject to change. If guests have any exciting activity suggestions, they\'re most welcome to share!',
   },
   {
     question: 'For the meals that aren\'t hosted, are there nearby restaurants or should we plan to cook in the beach houses?',
-    answer: 'nothing',
+    answer: 'There are several dining options nearby, with Mimmos being a notable recommendation. You\'ll find a variety of good food in the area. While dining out is an option, you might also consider coordinating with those you\'re staying with to plan meals at the beach house. The choice is entirely yours!',
   },
   {
     question: 'Will there be any water activities or beach games planned during our stay?',
-    answer: 'nothing',
+    answer: 'There are no official water activities or beach games organized by the wedding party. However, we encourage guests to explore and enjoy all that Destin has to offer during any downtime.',
   },
   {
     question: 'Are there any safety guidelines or precautions we should follow at the beach?',
-    answer: 'nothing',
+    answer: '⛔️ Missing',
   },
   {
     question: 'Is swimming allowed at the beach, and is there a lifeguard on duty?',
-    answer: 'nothing',
+    answer: 'Yes, swimming is permitted at the beach. However, please note there is no lifeguard on duty, so always exercise caution.',
   },
   {
     question: 'Are there specific parking instructions for those driving to the beach houses?',
-    answer: 'nothing',
+    answer: 'Please utilize the driveway to maximize parking space; it should accommodate the vehicles of everyone you\'re staying with. Note that street parking is not permitted.',
   },
   {
     question: 'How should we handle groceries or other essentials during our stay?',
-    answer: 'nothing',
+    answer: 'The beach houses come with fully-equipped kitchens. We recommend doing a grocery run to stock up on essentials and make yourself at home. With ample time over the weekend, you\'ll have plenty of opportunities to settle in and get cozy!',
   },
   {
     question: 'Will there be seating provided at the beach for the ceremony or should guests bring their own beach chairs?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Are there any environmental guidelines we should be aware of to preserve the beach\'s natural beauty?',
-    answer: 'nothing',
+    answer: 'Seating for the ceremony will be fully set up upon arrival, so guests do not need to bring their own beach chairs.',
   },
   {
     question: 'How formal are the hosted dinners, and is there a dress code?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Will there be bonfires or late-night events on the beach during our stay?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Are there any known marine animals or insects we should be cautious of at this beach?',
-    answer: 'nothing',
+    answer: 'The Friday night rehearsal dinner will be "beach casual." There\'s no strict dress code, so come comfortably while keeping the beach vibe in mind.',
   },
   {
     question: 'For the non-hosted meals, are BBQ grills available at the beach houses?',
-    answer: 'nothing',
+    answer: '⛔️ Missing',
   },
   {
     question: 'Will there be any organized group activities or outings, such as boat trips or beach tours?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Is sunscreen or bug spray recommended, and if so, are there any specific brands or types that work best for the area?',
-    answer: 'nothing',
+    answer: 'There are no organized group activities or outings planned by the wedding hosts. Any such activities would be up to the discretion and coordination of the group you\'re staying with.',
   },
   {
     question: 'Are children attending? If so, are there any child-friendly activities or considerations we should be aware of?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Will there be any special lighting or decorations at the beach houses or ceremony location that we should be aware of for planning or photography?',
-    answer: 'nothing',
+    answer: 'Yes, children are attending. While there will be festivities at Baytowne Wharf on Sunday night, it may not be particularly child-friendly.',
   },
 ];
 

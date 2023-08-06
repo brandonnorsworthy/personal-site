@@ -8,7 +8,7 @@ const QuestionAnswerTiles = (props) => {
       {
         questions.map((question, index) => {
           return (
-            <div className={`p-4 w-full flex flex-col ${index % 2 === 0 ? 'bg-white' : ''}`} key={index + question.question}>
+            <div className={`p-4 w-full flex flex-col ${index % 2 === 0 ? 'bg-white' : ''} ${index === questions.length - 1 ? 'rounded-b-lg' : ''}`} key={index + question.question}>
               <span className='font-bold'>{question.question}</span>
               <span className='ml-8'>{question.answer}</span>
             </div>

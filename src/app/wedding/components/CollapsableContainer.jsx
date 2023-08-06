@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const CollapsableContainer = ({ title, description, children, className }) => {
+const CollapsableContainer = ({ title, description, children, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -21,7 +21,7 @@ const CollapsableContainer = ({ title, description, children, className }) => {
     <div className={`rounded-lg ${className}`}>
       <div className='w-full flex flex-col justify-center'>
         <div
-          className='p-4 w-full flex flex-col hover:cursor-pointer'
+          className='group p-4 w-full flex flex-col hover:cursor-pointer'
           onClick={toggleOpen}
           onKeyDown={handleKeyDown}
           aria-expanded={isOpen}
@@ -31,7 +31,7 @@ const CollapsableContainer = ({ title, description, children, className }) => {
           tabIndex={0}>
           <div className='w-full flex flex-col'>
             <div className='w-full flex justify-between items-center'>
-              <span className='text-wedding-secondary-shadow select-none font-bold text-4xl'>{title}</span>
+              <span className={`${isOpen ? 'text-wedding-secondary-highlight' : 'text-wedding-secondary-shadow'} group-hover:text-wedding-secondary-highlight select-none font-bold text-4xl`}>{title}</span>
               {
                 isOpen
                   ? <svg
@@ -53,7 +53,7 @@ const CollapsableContainer = ({ title, description, children, className }) => {
                     viewBox="0 0 24 24"
                     strokeWidth={3}
                     width={24}
-                    className="w-12 h-12 stroke-wedding-secondary-shadow"
+                    className="w-12 h-12 stroke-wedding-secondary-shadow group-hover:stroke-wedding-secondary-highlight"
                     aria-hidden="true">
                     <path
                       strokeLinecap="round"
@@ -80,10 +80,6 @@ CollapsableContainer.propTypes = {
   description: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-};
-
-CollapsableContainer.defaultProps = {
-  className: '',
 };
 
 export default CollapsableContainer;

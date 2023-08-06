@@ -1,31 +1,23 @@
 const questions = [
   {
     question: 'Are there any recommended accommodations nearby?',
-    answer: 'nothing',
+    answer: '⛔️ Missing',
   },
   {
     question: 'Is there a group rate or discount available for lodging?',
-    answer: 'nothing',
+    answer: 'Not at this moment',
   },
   {
     question: 'Are transportation services provided between the hotel and the wedding venue?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Are there any local customs or traditions I should be aware of?',
-    answer: 'nothing',
+    answer: 'No, transportation services are not provided between the hotel and the wedding ceremony. Guests will need to make their own arrangements.',
   },
   {
     question: 'Are there any tourist attractions or local activities you\'d recommend during my stay?',
-    answer: 'nothing',
-  },
-  {
-    question: 'Are there any health or safety advisories for the area?',
-    answer: 'nothing',
+    answer: '⛔️ Missing',
   },
   {
     question: 'Do you have suggestions for local transportation options, like car rentals, taxis, or public transport?',
-    answer: 'nothing',
+    answer: 'We recommend renting a car if you haven\'t driven to the destination. It offers flexibility for exploring the area and attending the wedding events. While there might be local taxis or ride-sharing services like Uber and Lyft, having a rental car can be more convenient, especially in areas where such services might not be as frequent.',
   },
 ];
 
