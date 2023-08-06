@@ -13,7 +13,7 @@ const questions = [
   },
   {
     question: 'What is the dress code or theme for the wedding?',
-    answer: '⛔️ Missing',
+    answer: 'The dress code for the wedding is "beach formal." This typically means elegant beach attire, where men might wear summer suits with a linen shirt (no ties required), linen pants or khakis, and sandals. Women could opt for a summer sundress, a formal maxi dress, or a knee-length dress with flat sandals. Remember to choose outfits that are comfortable yet sophisticated, keeping the sandy environment in mind.',
   },
   {
     question: 'How should I prepare for the weather at that location and time of year?',
@@ -29,7 +29,7 @@ const questions = [
   },
   {
     question: 'Is there an RSVP deadline?',
-    answer: '⛔️ Missing',
+    answer: 'Yes, the RSVP deadline is August 26, 2024. Please ensure to confirm your attendance by this date.',
   },
   {
     question: 'How can I send a gift? Is there a registry?',
@@ -62,7 +62,7 @@ const questions = [
   },
   {
     question: 'Is there a deadline to book accommodations to ensure availability?',
-    answer: '⛔️ Missing',
+    answer: 'No, there isn\'t a specific deadline to book accommodations. Given it\'s the slow season, availability should be fine. However, it\'s always a good idea to book sooner rather than later for the best options and potential rates.',
   },
   {
     question: 'Are there any vaccination or quarantine requirements for traveling to the wedding location?',

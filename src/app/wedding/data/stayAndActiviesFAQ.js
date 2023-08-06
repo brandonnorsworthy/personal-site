@@ -34,7 +34,7 @@ const questions = [
   },
   {
     question: 'Are there any safety guidelines or precautions we should follow at the beach?',
-    answer: '⛔️ Missing',
+    answer: 'Always check the beach\'s flags upon arrival for current conditions, and consider looking up specific beach guidelines online beforehand.',
   },
   {
     question: 'Is swimming allowed at the beach, and is there a lifeguard on duty?',

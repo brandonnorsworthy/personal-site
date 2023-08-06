@@ -21,8 +21,8 @@ const CollapsableContainer = ({ title, description, children, className = '' }) 
     <div className={`rounded-lg ${className}`}>
       <div className='w-full flex flex-col justify-center'>
         <div
-          className='p-4 w-full flex flex-col'>
-          <div className='group w-full flex flex-col hover:cursor-pointer'
+          className='w-full flex flex-col'>
+          <div className='group p-4 w-full flex flex-col hover:cursor-pointer'
             onClick={toggleOpen}
             onKeyDown={handleKeyDown}
             aria-expanded={isOpen}
@@ -31,7 +31,7 @@ const CollapsableContainer = ({ title, description, children, className = '' }) 
             role='button'
             tabIndex={0}>
             <div className='w-full flex justify-between items-center'>
-              <span className={`${isOpen ? 'text-wedding-secondary-highlight' : 'text-wedding-secondary-shadow'} group-hover:text-wedding-secondary-highlight select-none font-bold text-4xl`}>{title}</span>
+              <span className={`${isOpen ? 'text-wedding-secondary-highlight group-hover:text-wedding-secondary-shadow' : 'text-wedding-secondary-shadow group-hover:text-wedding-secondary-highlight'} select-none font-bold text-4xl`}>{title}</span>
               {
                 isOpen
                   ? <svg
@@ -40,7 +40,7 @@ const CollapsableContainer = ({ title, description, children, className = '' }) 
                     viewBox="0 0 24 24"
                     strokeWidth={3}
                     width={24}
-                    className="w-12 h-12 stroke-wedding-secondary-highlight"
+                    className="w-12 h-12 stroke-wedding-secondary-highlight group-hover:stroke-wedding-secondary-shadow"
                     aria-hidden="true">
                     <path
                       strokeLinecap="round"
@@ -65,7 +65,7 @@ const CollapsableContainer = ({ title, description, children, className = '' }) 
             <span className='select-none'>{description}</span>
           </div>
           {
-            isOpen && <div id="collapsable-content" className='bg-wedding-secondary-highlight rounded-b-lg'>
+            isOpen && <div id="collapsable-content" className='mx-1 mb-1 bg-wedding-secondary-highlight rounded-b-lg'>
               {children}
             </div>
           }

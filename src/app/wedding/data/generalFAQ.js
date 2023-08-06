@@ -1,7 +1,7 @@
 const questions = [
   {
     question: 'Are there any recommended accommodations nearby?',
-    answer: '⛔️ Missing',
+    answer: 'No specific accommodations are recommended. Guests are encouraged to explore and choose what best suits their needs and preferences.',
   },
   {
     question: 'Is there a group rate or discount available for lodging?',
@@ -13,7 +13,7 @@ const questions = [
   },
   {
     question: 'Are there any tourist attractions or local activities you\'d recommend during my stay?',
-    answer: '⛔️ Missing',
+    answer: 'If you\'re up for it, Crab Island is a cool spot to check out when you\'re on a boat. And if you\'re in the mood for ice cream, Pecan Jacks is a local favorite. Enjoy!',
   },
   {
     question: 'Do you have suggestions for local transportation options, like car rentals, taxis, or public transport?',
