@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,12 +8,32 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+    screens: {
+      'mobile': '320px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
+    colors: {
+      'wedding': {
+        'primary': 'var(--color-wedding-primary)',
+        'primary-highlight': 'var(--color-wedding-primary-highlight)',
+        'primary-shadow': 'var(--color-wedding-primary-shadow)',
+        'secondary': 'var(--color-wedding-secondary)',
+        'secondary-highlight': 'var(--color-wedding-secondary-highlight)',
+        'secondary-shadow': 'var(--color-wedding-secondary-shadow)',
+        'gray': 'var(--color-wedding-gray)',
+        'gray-highlight': 'var(--color-wedding-gray-highlight)',
       },
+      'white': colors.white,
+      'black': colors.black,
+      'gray': colors.gray,
+      'red': colors.red,
+      'green': colors.green,
+      'blue': colors.blue,
+      'yellow': colors.yellow,
     },
   },
   plugins: [],

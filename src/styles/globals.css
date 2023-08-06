@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-wedding-primary: #A9DEDA;
+    --color-wedding-primary-highlight: #DBFFFC;
+    --color-wedding-primary-shadow: #60918E;
+    --color-wedding-secondary: #DEB9A6;
+    --color-wedding-secondary-highlight: #ECECEC;
+    --color-wedding-secondary-shadow: #BD8062;
+    --color-wedding-gray: #3F3F3F;
+    --color-wedding-gray-highlight: #D9D9D9;
+  }
+}
