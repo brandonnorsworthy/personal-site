@@ -21,15 +21,15 @@ const CollapsableContainer = ({ title, description, children, className = '' }) 
     <div className={`rounded-lg ${className}`}>
       <div className='w-full flex flex-col justify-center'>
         <div
-          className='group p-4 w-full flex flex-col hover:cursor-pointer'
-          onClick={toggleOpen}
-          onKeyDown={handleKeyDown}
-          aria-expanded={isOpen}
-          aria-controls={isOpen ? 'collapsable-content' : undefined}
-          aria-label={isOpen ? 'Collapse content' : 'Expand content'}
-          role='button'
-          tabIndex={0}>
-          <div className='w-full flex flex-col'>
+          className='p-4 w-full flex flex-col'>
+          <div className='group w-full flex flex-col hover:cursor-pointer'
+            onClick={toggleOpen}
+            onKeyDown={handleKeyDown}
+            aria-expanded={isOpen}
+            aria-controls={isOpen ? 'collapsable-content' : undefined}
+            aria-label={isOpen ? 'Collapse content' : 'Expand content'}
+            role='button'
+            tabIndex={0}>
             <div className='w-full flex justify-between items-center'>
               <span className={`${isOpen ? 'text-wedding-secondary-highlight' : 'text-wedding-secondary-shadow'} group-hover:text-wedding-secondary-highlight select-none font-bold text-4xl`}>{title}</span>
               {

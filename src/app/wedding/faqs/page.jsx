@@ -16,6 +16,7 @@ const Page = () => {
     <main className='min-h-[85vh] flex flex-col items-center'>
       <Navbar />
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-start'>
+        <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>[Frequently Asked Questions]</span>
         <CollapsableContainer
           title='Wedding Details'
           description='Questions specifically about the wedding day.'

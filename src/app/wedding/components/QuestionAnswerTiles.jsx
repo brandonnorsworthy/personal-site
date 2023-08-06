@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import PropTypes from 'prop-types';
 
 const QuestionAnswerTiles = (props) => {
@@ -10,7 +11,19 @@ const QuestionAnswerTiles = (props) => {
           return (
             <div className={`p-4 w-full flex flex-col ${index % 2 === 0 ? 'bg-white' : ''} ${index === questions.length - 1 ? 'rounded-b-lg' : ''}`} key={index + question.question}>
               <span className='font-bold'>{question.question}</span>
-              <span className='ml-8'>{question.answer}</span>
+              {
+                question.link
+                  ?
+                  <Link
+                    href={"/wedding/" + question.link}
+                    className='ml-8 underline text-wedding-primary-shadow'>
+                    {question.answer}
+                  </Link>
+                  :
+                  <span className='ml-8'>
+                    {question.answer}
+                  </span>
+              }
             </div>
           )
         })

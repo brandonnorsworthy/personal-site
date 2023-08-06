@@ -34,7 +34,7 @@ const questions = [
   {
     question: 'How can I send a gift? Is there a registry?',
     answer: 'Click to Visit the Registry page for more information.',
-    visit: '/wedding/registry',
+    link: '/registry',
   },
   {
     question: 'What\'s the nearest airport? And how far is it from the wedding?',

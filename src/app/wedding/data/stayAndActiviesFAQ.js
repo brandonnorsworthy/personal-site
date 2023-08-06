@@ -2,7 +2,7 @@ const questions = [
   {
     question: 'Which beach house will I be staying in, and who will be my housemates?',
     answer: 'Click to Visit the Travel & Stay page for more information.',
-    visit: '/wedding/travel',
+    link: '/travel',
   },
   {
     question: 'What are the check-in and check-out times for the beach houses?',
