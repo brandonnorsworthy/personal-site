@@ -34,7 +34,7 @@ export default [
   {
     dayOfWeek: 'SUNDAY',
     date: 'October 27',
-    note: 'Brandon & Madison’s Plans',
+    note: 'Optional',
     events: [
       {
         time: '12:00 PM',
@@ -51,8 +51,12 @@ export default [
     date: 'October 28',
     events: [
       {
+        time: 'Morning',
+        title: 'Goodbyes',
+      },
+      {
         time: '12:00 PM',
-        title: 'Check out / Departure',
+        title: 'Check out',
       }
     ],
   }

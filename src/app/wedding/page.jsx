@@ -26,7 +26,7 @@ const Page = () => {
       <div className='w-full bg-wedding-secondary flex justify-center'>
         <div className='p-8 w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
           <span className='text-wedding-secondary-highlight font-bold text-4xl'>Celebration Timeline</span>
-          <div className='mt-8 grid grid-cols-4 gap-4'>
+          <div className='mt-8 grid grid-cols-2 md:grid-cols-4 gap-4'>
             {
               SCHEDULE.map((day, index) => {
                 return (
