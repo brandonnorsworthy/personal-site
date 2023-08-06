@@ -16,7 +16,7 @@ const RootLayout = ({ children }) => {
       <body className={inter.className}>
         {children}
         <footer className='w-full flex justify-center'>
-          <div className='p-8 w-full md:w-[85%] lg:w-[75%] xl:w-[1000px]'>
+          <div className='p-5 w-full md:w-[85%] lg:w-[75%] xl:w-[1000px]'>
             <span>made by <Link href="https://www.brandonnorsworthy.com" className='underline font-bold'>brandon norsworthy</Link> ©️ 2024 ✌️</span>
             <div>
               <Link
