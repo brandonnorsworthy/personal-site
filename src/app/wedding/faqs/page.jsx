@@ -20,24 +20,21 @@ const Page = () => {
         <CollapsableContainer
           title='Wedding Details'
           description='Questions specifically about the wedding day.'
-          className='mt-8 w-full bg-wedding-secondary'
-          childrenToRender={
-            <QuestionAnswerTiles questions={weddingFAQ} />
-          } />
+          className='mt-8 w-full bg-wedding-secondary'>
+          <QuestionAnswerTiles questions={weddingFAQ} />
+        </CollapsableContainer>
         <CollapsableContainer
           title='Stay & Activities'
           description='Questions about the beach houses, meals, and activities during the weekend.'
-          className='mt-8 w-full bg-wedding-secondary'
-          childrenToRender={
-            <QuestionAnswerTiles questions={stayAndActiviesFAQ} />
-          } />
+          className='mt-8 w-full bg-wedding-secondary'>
+          <QuestionAnswerTiles questions={stayAndActiviesFAQ} />
+        </CollapsableContainer>
         <CollapsableContainer
           title='General'
           description='Other miscellaneous questions.'
-          className='mt-8 w-full bg-wedding-secondary'
-          childrenToRender={
-            <QuestionAnswerTiles questions={generalFAQ} />
-          } />
+          className='mt-8 w-full bg-wedding-secondary'>
+          <QuestionAnswerTiles questions={generalFAQ} />
+        </CollapsableContainer>
       </div>
     </main>
   )
