@@ -2,9 +2,7 @@ import Link from "next/link";
 import globalLinks from "../data/globalLinks";
 import React from "react";
 
-type GlobalNavbarProps = {};
-
-const GlobalNavbar: React.FC<GlobalNavbarProps> = () => {
+const GlobalNavbar: React.FC = () => {
   return (
     <nav className="flex justify-center w-full h-16 bg-global-secondary">
       <div className="px-5 h-full w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex justify-between items-center">
