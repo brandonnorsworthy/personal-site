@@ -1,16 +1,18 @@
-import CalendarCard from './components/CalendarCard';
-import Navbar from './components/Navbar'
+import React from 'react';
 import Image from 'next/image';
-import SCHEDULE from './data/schedule';
-import RSVPForm from './components/RSVPForm';
 
-export const metadata = {
+import CalendarCard from './components/CalendarCard';
+import Navbar from './components/Navbar';
+import RSVPForm from './components/RSVPForm';
+import SCHEDULE from './data/schedule';
+import { ScheduledDay } from './types';
+
+export const metadata: { title: string, description: string } = {
   title: '[Brandon & Madison]',
   description: 'Homepage for information about Brandon and Madison\'s wedding in 2024! RSVP, Travel, and Registry information.',
 }
 
-const Page = () => {
-
+const Page: React.FC = () => {
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
       <Navbar />
@@ -23,14 +25,14 @@ const Page = () => {
         alt='wavy transition to schedule section'
         width={1426}
         height={100} />
-      <div className='w-full bg-wedding-secondary flex justify-center'>
+      <div className='flex justify-center w-full bg-wedding-secondary'>
         <div className='p-8 w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
-          <span className='text-wedding-secondary-highlight font-bold text-4xl'>Celebration Timeline</span>
-          <div className='mt-8 grid grid-cols-2 md:grid-cols-4 gap-4'>
+          <span className='text-4xl font-bold text-wedding-secondary-highlight'>Celebration Timeline</span>
+          <div className='grid grid-cols-2 gap-4 mt-8 md:grid-cols-4'>
             {
-              SCHEDULE.map((day, index) => {
+              SCHEDULE.map((day: ScheduledDay, index) => {
                 return (
-                  <CalendarCard day={day} key={index + day.day} />
+                  <CalendarCard day={day} key={index + day.dayOfWeek} />
                 )
               })
             }
@@ -39,7 +41,7 @@ const Page = () => {
       </div>
       <div className='h-[65vh] w-full bg-wedding-gray-highlight flex justify-center items-center'>map across full width of screen, ocean on bottom (south) colored same as the form background, land is same color as beach color so its a transition and a map</div>
       <section
-        className='w-full py-32 px-16 bg-wedding-primary flex justify-center'
+        className='flex justify-center w-full px-16 py-32 bg-wedding-primary'
         id='rsvp'>
         <RSVPForm />
       </section>

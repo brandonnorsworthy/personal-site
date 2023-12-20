@@ -4,6 +4,15 @@
 
 @layer base {
   :root {
+    --color-global-primary: #1A1A1A;
+    --color-global-primary-highlight: #FFFFFF;
+    --color-global-primary-shadow: #000000;
+    --color-global-secondary: #cb7533;
+    --color-global-secondary-highlight: #FFFFFF;
+    --color-global-secondary-shadow: #8a4b1d;
+    --color-global-gray: #373737;
+    --color-global-gray-highlight: #cacaca;
+
     --color-wedding-primary: #A9DEDA;
     --color-wedding-primary-highlight: #DBFFFC;
     --color-wedding-primary-shadow: #60918E;

@@ -1,20 +1,23 @@
+import React from "react";
 import Image from "next/image";
-import Navbar from "../components/Navbar";
 import Link from "next/link";
+
+import Navbar from "../components/Navbar";
 
 export const metadata = {
   title: 'Gift Registry',
   description: 'Here, you can include details about the location, how to get there, parking information, and other logistics.',
 }
 
-const Page = () => {
+const Page: React.FC = () => {
   const registry = "https://www.crateandbarrel.com/gift-registry/madison-minton/r6752612";
+
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
       <Navbar />
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-start'>
         <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>[Gift Registry]</span>
-        <div className="mt-8 w-full flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center w-full mt-8">
           <span>
             We have a registry with Crate&Barrel
           </span>
@@ -22,11 +25,11 @@ const Page = () => {
             href={registry}
             target="_blank"
             rel="noopener noreferrer"
-            className='text-wedding-primary-shadow underline'>
+            className='underline text-wedding-primary-shadow'>
             click here to view!
           </Link>
         </div>
-        <div className="mt-8 p-8 w-full flex justify-center relative">
+        <div className="relative flex justify-center w-full p-8 mt-8">
           <Link
             href={registry}
             target="_blank"

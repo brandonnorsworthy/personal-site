@@ -1,17 +1,23 @@
-'use client'
+"use client";
 
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, KeyboardEvent, ReactNode } from 'react';
 
-const CollapsableContainer = (props) => {
+interface CollapsableContainerProps {
+  title: string;
+  description: string;
+  children: ReactNode;
+  className?: string;
+}
+
+const CollapsableContainer: React.FC<CollapsableContainerProps> = (props) => {
   const { title, description, children, className = '' } = props;
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOpen = () => {
+  const toggleOpen = (): void => {
     setIsOpen((previousIsOpen) => !previousIsOpen);
   };
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>): void => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       toggleOpen();
@@ -20,10 +26,10 @@ const CollapsableContainer = (props) => {
 
   return (
     <div className={`rounded-lg ${className}`}>
-      <div className='w-full flex flex-col justify-center'>
+      <div className='flex flex-col justify-center w-full'>
         <div
-          className='w-full flex flex-col'>
-          <div className='group p-4 w-full flex flex-col hover:cursor-pointer'
+          className='flex flex-col w-full'>
+          <div className='flex flex-col w-full p-4 group hover:cursor-pointer'
             onClick={toggleOpen}
             onKeyDown={handleKeyDown}
             aria-expanded={isOpen}
@@ -31,7 +37,7 @@ const CollapsableContainer = (props) => {
             aria-label={isOpen ? 'Collapse content' : 'Expand content'}
             role='button'
             tabIndex={0}>
-            <div className='w-full flex justify-between items-center'>
+            <div className='flex items-center justify-between w-full'>
               <span className={`${isOpen ? 'text-wedding-secondary-highlight group-hover:text-wedding-secondary-shadow' : 'text-wedding-secondary-shadow group-hover:text-wedding-secondary-highlight'} select-none font-bold text-4xl`}>{title}</span>
               {
                 isOpen
@@ -66,7 +72,7 @@ const CollapsableContainer = (props) => {
             <span className='select-none'>{description}</span>
           </div>
           {
-            isOpen && <div id="collapsable-content" className='mx-1 mb-1 bg-wedding-secondary-highlight rounded-b-lg'>
+            isOpen && <div id="collapsable-content" className='mx-1 mb-1 rounded-b-lg bg-wedding-secondary-highlight'>
               {children}
             </div>
           }
@@ -75,12 +81,5 @@ const CollapsableContainer = (props) => {
     </div>
   );
 }
-
-CollapsableContainer.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-};
 
 export default CollapsableContainer;

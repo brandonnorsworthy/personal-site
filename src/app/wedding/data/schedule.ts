@@ -1,4 +1,4 @@
-const days = [
+export default [
   {
     dayOfWeek: 'FRIDAY',
     date: 'October 25',
@@ -60,6 +60,4 @@ const days = [
       }
     ],
   }
-]
-
-export default days;
+];
