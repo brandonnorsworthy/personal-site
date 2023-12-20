@@ -1,4 +1,4 @@
-const questions = [
+export default [
   {
     question: 'Are there any recommended accommodations nearby?',
     answer: 'No specific accommodations are recommended. Guests are encouraged to explore and choose what best suits their needs and preferences.',
@@ -20,5 +20,3 @@ const questions = [
     answer: 'We recommend renting a car if you haven\'t driven to the destination. It offers flexibility for exploring the area and attending the wedding events. While there might be local taxis or ride-sharing services like Uber and Lyft, having a rental car can be more convenient, especially in areas where such services might not be as frequent.',
   },
 ];
-
-export default questions;

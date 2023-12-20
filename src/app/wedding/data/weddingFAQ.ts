@@ -1,4 +1,4 @@
-const questions = [
+export default [
   {
     question: 'Where is the wedding location (city and state)?',
     answer: 'Destin, FL',
@@ -69,5 +69,3 @@ const questions = [
     answer: 'No',
   },
 ];
-
-export default questions;

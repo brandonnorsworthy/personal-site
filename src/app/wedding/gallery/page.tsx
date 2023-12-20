@@ -1,3 +1,4 @@
+import React from "react";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
@@ -5,7 +6,7 @@ export const metadata = {
   description: 'Gallery of photos from Brandon and Madison\'s wedding in 2024!',
 }
 
-const Page = () => {
+const Page: React.FC = () => {
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
       <Navbar />

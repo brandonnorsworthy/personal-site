@@ -17,6 +17,16 @@ module.exports = {
       '2xl': '1536px',
     },
     colors: {
+      'global': {
+        'primary': 'var(--color-global-primary)',
+        'primary-highlight': 'var(--color-global-primary-highlight)',
+        'primary-shadow': 'var(--color-global-primary-shadow)',
+        'secondary': 'var(--color-global-secondary)',
+        'secondary-highlight': 'var(--color-global-secondary-highlight)',
+        'secondary-shadow': 'var(--color-global-secondary-shadow)',
+        'gray': 'var(--color-global-gray)',
+        'gray-highlight': 'var(--color-global-gray-highlight)',
+      },
       'wedding': {
         'primary': 'var(--color-wedding-primary)',
         'primary-highlight': 'var(--color-wedding-primary-highlight)',
