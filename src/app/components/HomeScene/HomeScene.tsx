@@ -6,9 +6,10 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 const HomeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const modelRef = useRef<THREE.Object3D>(); // Ref to hold the model
+  const modelRef = useRef<THREE.Object3D>();
 
   useEffect(() => {
+    const mountRefCurrent = mountRef.current;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = 5;
@@ -61,7 +62,7 @@ const HomeScene: React.FC = () => {
     window.addEventListener('resize', handleResize);
 
     return () => {
-      if (mountRef.current) mountRef.current.removeChild(renderer.domElement);
+      if (mountRefCurrent) mountRefCurrent.removeChild(renderer.domElement);
       window.removeEventListener('resize', handleResize);
     };
   }, []);
