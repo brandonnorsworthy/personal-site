@@ -1,20 +1,59 @@
-var globalLinks = [
+type GlobalLink = {
+  name: string;
+  description?: string;
+  url: string;
+  coming: string;
+  override?: boolean;
+  ignore?: boolean;
+  externalLink?: boolean;
+  sublinks?: GlobalLinkSublink[];
+}
+
+type GlobalLinkSublink = {
+  name: string;
+  description?: string;
+  coming?: string;
+  ignore?: boolean;
+  externalLink?: boolean;
+}
+
+const globalLinks: GlobalLink[] = [
   {
     name: "Home",
     url: "/",
     coming: "TBD",
-    override: true,
+    ignore: true,
   },
   {
     name: "Wedding",
     url: "/wedding",
     coming: "Q1/2024",
-    override: true,
   },
   {
     name: "Roadmap",
     url: "/roadmap",
     coming: "Q4/2023",
+    override: true,
+  },
+  {
+    name: "Hobbies",
+    url: "/hobbies",
+    coming: "Q1/2024",
+    override: true,
+    sublinks: [
+      { name: "Guitar" },
+      { name: "Gaming" },
+      { name: "Photography" },
+      { name: "Cooking" },
+      { name: "Juggling" },
+      { name: "Gardening" },
+      { name: "Programming" },
+    ]
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+    coming: "Q1/2024",
     override: true,
   },
   {
@@ -31,32 +70,34 @@ var globalLinks = [
       {
         name: "BrandonGPT",
         description: "Completely unlocked LLM that will give you anything you want it to reply with with no limitations.",
-        url: "/projects/brandongpt",
         coming: "Q2/2024",
       },
       {
         name: "Bitter",
         description: "A social media platform that is a mix of twitter and reddit. Able to post 280 characters and upvote/downvote posts. Used for me to document my thoughts to reflect later",
-        url: "/projects/bitter",
+        externalLink: true,
         coming: "Q1/2024",
       },
       {
         name: "Global Activity",
         description: "A activity tracker similar to github contributions across all platforms, github, bitter, bitbucket, stackoverflow, blogposts, wakatime, etc",
-        url: "/projects/globalactivity",
         coming: "TBD",
       },
       {
         name: "Colors of War Game Remake",
         description: "Remake of the game Colors of War, in the browser but with free multiplayer",
-        url: "/projects/colorsofwar",
+        externalLink: true,
         coming: "TBD",
       },
       {
         name: "EngagmentAI",
         description: "A secret project that will have the ability to mimic users with their own personalities and activities, will be added to bitter",
-        url: "/projects/engagmentai",
         coming: "TBD",
+      },
+      {
+        name: "Guitar: Music Theory",
+        description: "A website that will teach you music theory and how to play guitar, visual fretboard where you place scales and chords based on what is asked to help memorize the fretboard",
+        coming: "Q1/2024",
       },
     ],
   },
