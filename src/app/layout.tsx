@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 
 import '../styles/reset.css'
 import '../styles/globals.css'
+import GlobalHeader from './components/GlobalNavbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,6 +20,7 @@ interface RootLayoutProps {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
   return (
     <html lang="en">
+      <GlobalHeader />
       <body className={inter.className}>
         {children}
         <footer className='flex justify-center w-full'>
