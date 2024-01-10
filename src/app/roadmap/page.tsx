@@ -5,9 +5,7 @@ const Page = () => {
 
   return (
     <>
-      <header>
-        <GlobalNavbar />
-      </header>
+      <GlobalNavbar />
       <main className="flex flex-col items-center justify-center min-h-screen bg-global-gray">
         <div>
           here

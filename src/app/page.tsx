@@ -6,9 +6,7 @@ import GlobalNavbar from './components/GlobalNavbar'
 const Home: React.FC = () => {
   return (
     <>
-      <header>
-        <GlobalNavbar />
-      </header>
+      <GlobalNavbar />
       <main className="flex flex-col items-center justify-center min-h-screen bg-global-gray">
         <div>
           <Link href="/wedding" className='underline'>looking for wedding?</Link>
