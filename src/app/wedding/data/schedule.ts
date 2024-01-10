@@ -1,4 +1,4 @@
-export default [
+const schedule = [
   {
     dayOfWeek: 'FRIDAY',
     date: 'October 25',
@@ -61,3 +61,5 @@ export default [
     ],
   }
 ];
+
+export default schedule;

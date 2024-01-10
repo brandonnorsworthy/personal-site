@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 
 import CalendarCard from './components/CalendarCard';
-import Navbar from './components/Navbar';
 import RSVPForm from './components/RSVPForm';
 import SCHEDULE from './data/schedule';
 import { ScheduledDay } from './types';
@@ -15,7 +14,6 @@ export const metadata: { title: string, description: string } = {
 const Page: React.FC = () => {
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
-      <Navbar /> //todo move navbar for wedding into a <header></header>
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
         <div className='mt-14 h-[65vh] w-full bg-wedding-gray-highlight flex justify-center items-center'>hero img</div>
       </div>
