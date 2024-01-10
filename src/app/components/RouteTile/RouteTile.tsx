@@ -14,11 +14,11 @@ const RouteTile: React.FC<RouteTileProps> = ({ title, href, externalLink, descri
       <Link
         href={href}
         target={externalLink ? '_blank' : '_self'}>
-        <div className="flex flex-col items-center justify-center w-full h-full p-4 text-center transition-colors duration-150 border border-solid hover:bg-gray-400 border-sky-500 rounded-2xl">
-          <h1 className="text-6xl font-semibold text-white">{title}</h1>
+        <div className="flex flex-col items-center justify-center w-full h-full p-4 text-center transition-colors duration-150 border border-solid aspect-square hover:bg-gray-400 border-sky-500 rounded-2xl">
+          <h1 className="text-3xl font-bold text-white drop-shadow-routeTilesTitle font-semi">{title}</h1>
           {
             description &&
-            <span className="mt-8 text-base font-semibold text-white">{description}</span>
+            <span className="mt-8 text-base font-semibold text-white md:text-lg xl:text-sm drop-shadow-routeTilesDescription">{description}</span>
           }
         </div>
       </Link>

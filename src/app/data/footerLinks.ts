@@ -1,10 +1,10 @@
-export type Link = {
+export type FooterLink = {
   label: string;
   openInNewTab: boolean;
   href: string;
 };
 
-const Links: Link[] = [
+const footerLinks: FooterLink[] = [
   {
     label: "github",
     openInNewTab: true,
@@ -22,4 +22,4 @@ const Links: Link[] = [
   },
 ];
 
-export default Links;
+export default footerLinks;

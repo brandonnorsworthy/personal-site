@@ -45,6 +45,10 @@ module.exports = {
       'blue': colors.blue,
       'yellow': colors.yellow,
     },
+    dropShadow: {
+      'routeTilesTitle': '0 1px 2px rgba(0, 0, 0, 0.75)',
+      'routeTilesDescription': '0 1px 2px rgba(0, 0, 0, 0.75)',
+    }
   },
   plugins: [],
 }
