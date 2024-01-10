@@ -15,7 +15,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({ responsiveConstraintClasses
   const authenticated = false;
 
   return (
-    <header className='flex justify-center w-full h-12'>
+    <header className='flex justify-center w-full h-12 bg-gray-500/50'>
       <nav className={[responsiveConstraintClasses, "flex items-center justify-between h-full"].join(" ")}>
         <Link href="/" className="whitespace-nowrap">Brandon&apos;s Website</Link>
         <div className="flex h-full p-2 space-x-4">

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Links from "./links";
+import footerLinks from "../../data/footerLinks";
 import withLayout from "../../hocs/withLayout";
 
 interface GlobalFooterProps {
@@ -14,7 +14,7 @@ const GlobalFooter: React.FC<GlobalFooterProps> = ({ responsiveConstraintClasses
         <span>made by <Link href="/" className='font-bold underline'>brandon norsworthy</Link> ©️ 2024</span>
         <div>
           {
-            Links.map((link, index) => (
+            footerLinks.map((link, index) => (
               <Link
                 href={link.href}
                 key={link.href + index}

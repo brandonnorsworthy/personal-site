@@ -4,6 +4,7 @@ import React, { useContext } from 'react'
 import RouteTile from './components/RouteTile'
 import globalLinks from './data/globalLinks'
 import withLayout from './hocs/withLayout'
+import HomeScene from './components/HomeScene'
 
 interface HomeProps {
   responsiveConstraintClasses: string;
@@ -12,8 +13,9 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ responsiveConstraintClasses }) => {
 
   return (
-    <main className='py-6 flex justify-center w-full min-h-[calc(100vh-48px)] bg-gray-600'>
-      <article className={[responsiveConstraintClasses, "grid grid-cols-2 gap-6 h-full"].join(" ")}>
+    <main className='py-6 flex justify-center w-full min-h-[calc(100vh-48px)]'>
+      <HomeScene />
+      <article className={[responsiveConstraintClasses, "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-0 md:gap-6 h-full"].join(" ")}>
         {
           globalLinks.map((link, index) => {
             if (link.ignore) return null;
