@@ -1,4 +1,4 @@
-export default [
+const stayAndActivitiesFAQ = [
   {
     question: 'Which beach house will I be staying in, and who will be my housemates?',
     answer: 'Click to Visit the Travel & Stay page for more information.',
@@ -74,3 +74,5 @@ export default [
     answer: 'Yes, children are attending. While there will be festivities at Baytowne Wharf on Sunday night, it may not be particularly child-friendly.',
   },
 ];
+
+export default stayAndActivitiesFAQ;
