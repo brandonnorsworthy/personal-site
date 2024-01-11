@@ -7,7 +7,6 @@ import routeObjectModels, { routeObjectModelTypes } from "../../data/routeObject
 
 const HomeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [backgroundDimQuantity, setBackgroundDimQuantity] = useState(0.5);
 
   useEffect(() => {
     const mountRefCurrent = mountRef.current;
@@ -30,7 +29,7 @@ const HomeScene: React.FC = () => {
     // set up lighting
     const lightColor = 0xFFFFFF;
 
-    const ambientlight = new THREE.AmbientLight(lightColor, 0.1);
+    const ambientlight = new THREE.AmbientLight(lightColor, 0.5);
     scene.add(ambientlight);
 
     const light = new THREE.PointLight(lightColor, 1000);
@@ -69,7 +68,6 @@ const HomeScene: React.FC = () => {
             const canvas = renderer.domElement;
             const container = taggedDiv.getBoundingClientRect();
             const containerPosition = { isXPositive: false, isYPositive: false };
-            const windowAspectRatio = window.innerWidth / window.innerHeight;
             const maxWorldPositions = { x: window.innerWidth / 180, y: window.innerHeight / 180 };
 
             // define the canvas quadrants
@@ -164,7 +162,10 @@ const HomeScene: React.FC = () => {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-full fixed top-0 left-0 z-[-1]"></div>;
+  return <div
+    ref={mountRef}
+    className="w-full h-full fixed top-0 left-0 z-[-1]">
+  </div>;
 };
 
 export default HomeScene;
