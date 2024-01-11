@@ -15,9 +15,9 @@ const GlobalHeader: React.FC<GlobalHeaderProps> = ({ responsiveConstraintClasses
   const authenticated = false;
 
   return (
-    <header className='flex justify-center w-full h-12 bg-gray-500/50'>
+    <header className='flex justify-center w-full h-12'>
       <nav className={[responsiveConstraintClasses, "flex items-center justify-between h-full"].join(" ")}>
-        <Link href="/" className="whitespace-nowrap">Brandon&apos;s Website</Link>
+        <Link href="/" className="text-xl whitespace-nowrap">Brandon&apos;s Website</Link>
         <div className="flex h-full p-2 space-x-4">
           <div className="w-6">
             <SunIcon className="p-1 h-full fill-yellow-500 hover:cursor-pointer hover:bg-black hover:fill-yellow-500 rounded-[50%]" />

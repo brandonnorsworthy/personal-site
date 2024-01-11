@@ -34,14 +34,12 @@ const globalLinks: GlobalLink[] = [
     description: "A roadmap of what I am working on, what I have completed, and what I am planning to do in the future. This is a living document and will be updated as I update the site.",
     url: "/roadmap",
     coming: "Q4/2023",
-    override: true,
   },
   {
     name: "Hobbies",
     description: "Categories of hobbies I enjoy doing in my free time",
     url: "/hobbies",
     coming: "Q1/2024",
-    override: true,
     sublinks: [
       { name: "Guitar" },
       { name: "Gaming" },
