@@ -102,7 +102,6 @@ const HomeScene: React.FC = () => {
             canvasMidpoint.x = canvasWidth / 2;
             canvasMidpoint.y = canvasHeight / 2;
 
-            console.log('container', dataObject.name, taggedDiv, container)
             // find what quandrant the tagged container is in
             // positiveX = containerPosition is more than canvasMidpoint
             containerPosition.isXPositive = container.x > canvasMidpoint.x;
@@ -111,30 +110,32 @@ const HomeScene: React.FC = () => {
 
             // the center of the tagged container
             // containerCenterPosition = (containerPosition - canvasMidpoint) - (containerWidth / 2)
-            const containerCenterPosition = { x: 0, y: 0 };
-            containerCenterPosition.x = (container.x) + (container.width / 2);
-            containerCenterPosition.y = (container.y) + (container.height / 2);
-            console.log('containerCenterPosition', dataObject.name, containerCenterPosition)
+            const distanceFromMidpoint = { x: 0, y: 0 };
+            distanceFromMidpoint.x = (container.x) + (container.width / 2);
+            distanceFromMidpoint.y = (container.y) + (container.height / 2);
 
             if (containerPosition.isXPositive && containerPosition.isYPositive) {
               // quadrant 1
-              containerCenterPosition.x = containerCenterPosition.x - canvasMidpoint.x;
+              distanceFromMidpoint.x = distanceFromMidpoint.x - canvasMidpoint.x;
+              distanceFromMidpoint.y = canvasMidpoint.y - distanceFromMidpoint.y;
             } else if (!containerPosition.isXPositive && containerPosition.isYPositive) {
               // quadrant 2
+              distanceFromMidpoint.x = canvasMidpoint.x - distanceFromMidpoint.x;
+              distanceFromMidpoint.y = canvasMidpoint.y - distanceFromMidpoint.y;
             } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
               // quadrant 3
-              containerCenterPosition.y = containerCenterPosition.x - canvasMidpoint.y;
+              distanceFromMidpoint.x = canvasMidpoint.x - distanceFromMidpoint.x;
+              distanceFromMidpoint.y = distanceFromMidpoint.y - canvasMidpoint.y;
             } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
               // quadrant 4
-              containerCenterPosition.x = containerCenterPosition.x - canvasMidpoint.x;
-              containerCenterPosition.y = containerCenterPosition.x - canvasMidpoint.y;
+              distanceFromMidpoint.x = distanceFromMidpoint.x - canvasMidpoint.x;
+              distanceFromMidpoint.y = distanceFromMidpoint.y - canvasMidpoint.y;
             }
 
             // take the center location and find the percent of x or y in the quandrant
             const percentTranslated = { x: 0, y: 0 };
-
-            percentTranslated.x = containerCenterPosition.x / canvasMidpoint.x;
-            percentTranslated.y = containerCenterPosition.y / canvasMidpoint.y;
+            percentTranslated.x = distanceFromMidpoint.x / canvasMidpoint.x;
+            percentTranslated.y = distanceFromMidpoint.y / canvasMidpoint.y;
 
             // take the percent translated and multiply it by the 3d world max x (assuming its 9)
             const worldPosition = { x: 0, y: 0 };
