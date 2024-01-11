@@ -69,7 +69,8 @@ const HomeScene: React.FC = () => {
             const canvas = renderer.domElement;
             const container = taggedDiv.getBoundingClientRect();
             const containerPosition = { isXPositive: false, isYPositive: false };
-            const maxWorldPositions = { x: 9, y: 7 };
+            const windowAspectRatio = window.innerWidth / window.innerHeight;
+            const maxWorldPositions = { x: window.innerWidth / 180, y: window.innerHeight / 180 };
 
             // define the canvas quadrants
             const canvasWidth = canvas.clientWidth;
@@ -112,7 +113,7 @@ const HomeScene: React.FC = () => {
             percentTranslated.x = distanceFromMidpoint.x / canvasMidpoint.x;
             percentTranslated.y = distanceFromMidpoint.y / canvasMidpoint.y;
 
-            // take the percent translated and multiply it by the 3d world max x (assuming its 9)
+            // take the percent translated and multiply it by the 3d world max x
             const worldPosition = { x: 0, y: 0 };
             worldPosition.x = percentTranslated.x * maxWorldPositions.x;
             worldPosition.y = percentTranslated.y * maxWorldPositions.y;
