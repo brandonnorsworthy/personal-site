@@ -13,7 +13,7 @@ interface HomeProps {
 const Home: React.FC<HomeProps> = ({ responsiveConstraintClasses }) => {
 
   return (
-    <main className='py-6 flex justify-center w-full min-h-[calc(100vh-48px)]'>
+    <main className='py-3 md:py-6 flex justify-center w-full min-h-[calc(100vh-48px)]'>
       <HomeScene />
       <article className={[responsiveConstraintClasses, "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-0 md:gap-6 h-full"].join(" ")}>
         {
@@ -23,6 +23,7 @@ const Home: React.FC<HomeProps> = ({ responsiveConstraintClasses }) => {
             return (<RouteTile
               title={link.name}
               description={link.description}
+              model={link.model}
               href={link.url}
               key={link.url + index}
               externalLink={link.externalLink} />)

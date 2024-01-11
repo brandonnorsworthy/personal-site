@@ -3,6 +3,7 @@ type GlobalLink = {
   description?: string;
   url: string;
   coming: string;
+  model?: string;
   override?: boolean;
   ignore?: boolean;
   externalLink?: boolean;
@@ -33,15 +34,14 @@ const globalLinks: GlobalLink[] = [
     name: "Roadmap",
     description: "A roadmap of what I am working on, what I have completed, and what I am planning to do in the future. This is a living document and will be updated as I update the site.",
     url: "/roadmap",
+    model: "car",
     coming: "Q4/2023",
-    override: true,
   },
   {
     name: "Hobbies",
     description: "Categories of hobbies I enjoy doing in my free time",
     url: "/hobbies",
     coming: "Q1/2024",
-    override: true,
     sublinks: [
       { name: "Guitar" },
       { name: "Gaming" },
@@ -55,6 +55,7 @@ const globalLinks: GlobalLink[] = [
   {
     name: "Blog",
     url: "/blog",
+    model: "house",
     coming: "Q1/2024",
   },
   {
@@ -67,6 +68,7 @@ const globalLinks: GlobalLink[] = [
     name: "Projects",
     description: "Coding, Engineering, Game Development, or other creative outlets.",
     url: "/projects",
+    model: "laptop",
     coming: "Q2/2024",
     sublinks: [
       {
