@@ -3,6 +3,7 @@ type GlobalLink = {
   description?: string;
   url: string;
   coming: string;
+  model?: string;
   override?: boolean;
   ignore?: boolean;
   externalLink?: boolean;
@@ -65,6 +66,7 @@ const globalLinks: GlobalLink[] = [
     name: "Projects",
     description: "Coding, Engineering, Game Development, or other creative outlets.",
     url: "/projects",
+    model: "laptop",
     coming: "Q2/2024",
     sublinks: [
       {

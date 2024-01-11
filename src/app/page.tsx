@@ -23,6 +23,7 @@ const Home: React.FC<HomeProps> = ({ responsiveConstraintClasses }) => {
             return (<RouteTile
               title={link.name}
               description={link.description}
+              model={link.model}
               href={link.url}
               key={link.url + index}
               externalLink={link.externalLink} />)

@@ -1,4 +1,4 @@
-export type FooterLink = {
+type FooterLink = {
   label: string;
   openInNewTab: boolean;
   href: string;

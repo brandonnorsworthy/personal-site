@@ -6,11 +6,12 @@ interface RouteTileProps {
   href: string;
   externalLink?: boolean;
   description?: string;
+  model?: string;
 }
 
-const RouteTile: React.FC<RouteTileProps> = ({ title, href, externalLink, description }) => {
+const RouteTile: React.FC<RouteTileProps> = ({ title, href, externalLink, description, model }) => {
   return (
-    <div className="w-full py-2 first:pt-0 last:pb-0 md:first:pt-0 md:last:pb-0 md:py-0 aspect-square">
+    <div className="w-full py-2 first:pt-0 last:pb-0 md:first:pt-0 md:last:pb-0 md:py-0 aspect-square" data-model={model}>
       <Link
         href={href}
         target={externalLink ? '_blank' : '_self'}>
