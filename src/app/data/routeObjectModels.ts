@@ -5,10 +5,18 @@ export type routeObjectModelTypes = {
 }
 
 const routeObjectModels: routeObjectModelTypes[] = [
+  // {
+  //   name: "laptop",
+  //   path: "laptop.glb",
+  //   tags: ["technology", "computer", "windows", "apple", "programming", "coding", "software", "hardware", "gaming"]
+  // },
+  // {
+  //   name: "car",
+  //   path: "car.glb",
+  // },
   {
-    name: "laptop",
-    path: "laptop.glb",
-    tags: ["technology", "computer", "windows", "apple", "programming", "coding", "software", "hardware", "gaming"]
+    name: "house",
+    path: "house.glb",
   }
 ]
 

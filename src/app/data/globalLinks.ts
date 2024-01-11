@@ -34,6 +34,7 @@ const globalLinks: GlobalLink[] = [
     name: "Roadmap",
     description: "A roadmap of what I am working on, what I have completed, and what I am planning to do in the future. This is a living document and will be updated as I update the site.",
     url: "/roadmap",
+    model: "car",
     coming: "Q4/2023",
   },
   {
@@ -54,6 +55,7 @@ const globalLinks: GlobalLink[] = [
   {
     name: "Blog",
     url: "/blog",
+    model: "house",
     coming: "Q1/2024",
   },
   {

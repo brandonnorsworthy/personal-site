@@ -41,6 +41,9 @@ const HomeScene: React.FC = () => {
         loader.load(
           `/models/${model.path}`,
           (gltf) => {
+            gltf.scene.rotateX(Math.random() * 90);
+            gltf.scene.rotateY(Math.random() * 90);
+
             scene.add(gltf.scene);
             resolve({ sceneObject: gltf.scene, dataObject: model });
           },
@@ -53,6 +56,8 @@ const HomeScene: React.FC = () => {
       });
     };
 
+    // ... (previous setup)
+
     Promise.all(routeObjectModels.map(loadModel)).then(initializedModels => {
       // set up animation
       const animate = () => {
@@ -61,9 +66,25 @@ const HomeScene: React.FC = () => {
         for (const { sceneObject, dataObject } of initializedModels) {
           const taggedDiv = document.querySelector(`[data-model="${dataObject.name}"]`);
           if (taggedDiv) {
-            const { x, y } = taggedDiv.getBoundingClientRect();
-            sceneObject.position.x = x / 200;
-            sceneObject.position.y = y / 200;
+            const { x, y, width, height } = taggedDiv.getBoundingClientRect();
+
+            // Normalize screen coordinates
+            const screenX = (x / window.innerWidth) * 2 - 1;
+            const screenY = -(y / window.innerHeight) * 2 + 1;
+
+            console.log("x", x, screenX, window.innerWidth)
+            console.log("y", y, screenY, window.innerHeight)
+
+            // Vector for 3D coordinates
+            const vector = new THREE.Vector3(screenX, screenY, 10);
+
+            // Unproject to 3D space
+            vector.unproject(camera);
+
+            const multiplier = 100
+            // You might need to adjust these positions based on your specific scene setup
+            sceneObject.position.x = vector.x * multiplier;
+            sceneObject.position.y = vector.y * multiplier;
           }
 
           sceneObject.rotation.x += 0.001;
@@ -74,6 +95,7 @@ const HomeScene: React.FC = () => {
       };
       animate();
     });
+
 
     // set up resizing
     const handleResize = () => {
