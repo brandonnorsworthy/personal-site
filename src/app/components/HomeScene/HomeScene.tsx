@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import routeObjectModels, { routeObjectModelTypes } from "../../data/routeObjectModels";
 
 const HomeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const [backgroundDimQuantity, setBackgroundDimQuantity] = useState(0.5);
 
   useEffect(() => {
     const mountRefCurrent = mountRef.current;
@@ -27,10 +28,12 @@ const HomeScene: React.FC = () => {
     }
 
     // set up lighting
-    const ambientlight = new THREE.AmbientLight(0xffffff, 0.1);
+    const lightColor = 0xFFFFFF;
+
+    const ambientlight = new THREE.AmbientLight(lightColor, 0.1);
     scene.add(ambientlight);
 
-    const light = new THREE.PointLight(0xffffff, 1000);
+    const light = new THREE.PointLight(lightColor, 1000);
     light.position.set(10, 10, 10);
     scene.add(light);
 
@@ -56,35 +59,82 @@ const HomeScene: React.FC = () => {
       });
     };
 
-    // ... (previous setup)
-
     Promise.all(routeObjectModels.map(loadModel)).then(initializedModels => {
-      // set up animation
       const animate = () => {
         requestAnimationFrame(animate);
 
         for (const { sceneObject, dataObject } of initializedModels) {
           const taggedDiv = document.querySelector(`[data-model="${dataObject.name}"]`);
           if (taggedDiv) {
-            const { x, y, width, height } = taggedDiv.getBoundingClientRect();
+            const canvas = renderer.domElement;
+            const container = taggedDiv.getBoundingClientRect();
+            const containerPosition = { isXPositive: false, isYPositive: false };
+            const maxWorldPositions = { x: 9, y: 7 };
 
-            // Normalize screen coordinates
-            const screenX = (x / window.innerWidth) * 2 - 1;
-            const screenY = -(y / window.innerHeight) * 2 + 1;
+            // define the canvas quadrants
+            const canvasWidth = canvas.clientWidth;
+            const canvasHeight = canvas.clientHeight;
+            const canvasMidpoint = { x: 0, y: 0 };
+            canvasMidpoint.x = canvasWidth / 2;
+            canvasMidpoint.y = canvasHeight / 2;
 
-            console.log("x", x, screenX, window.innerWidth)
-            console.log("y", y, screenY, window.innerHeight)
+            // find what quandrant the tagged container is in
+            // positiveX = containerPosition is more than canvasMidpoint
+            containerPosition.isXPositive = container.x > canvasMidpoint.x;
+            // positiveY = containerPosition is more than canvasMidpoint
+            containerPosition.isYPositive = container.y < canvasMidpoint.y;
 
-            // Vector for 3D coordinates
-            const vector = new THREE.Vector3(screenX, screenY, 10);
+            // the center of the tagged container
+            const distanceFromMidpoint = { x: 0, y: 0 };
+            distanceFromMidpoint.x = (container.x) + (container.width / 2);
+            distanceFromMidpoint.y = (container.y) + (container.height / 2);
 
-            // Unproject to 3D space
-            vector.unproject(camera);
+            if (containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 1
+              distanceFromMidpoint.x = distanceFromMidpoint.x - canvasMidpoint.x;
+              distanceFromMidpoint.y = canvasMidpoint.y - distanceFromMidpoint.y;
+            } else if (!containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 2
+              distanceFromMidpoint.x = canvasMidpoint.x - distanceFromMidpoint.x;
+              distanceFromMidpoint.y = canvasMidpoint.y - distanceFromMidpoint.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 3
+              distanceFromMidpoint.x = canvasMidpoint.x - distanceFromMidpoint.x;
+              distanceFromMidpoint.y = distanceFromMidpoint.y - canvasMidpoint.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 4
+              distanceFromMidpoint.x = distanceFromMidpoint.x - canvasMidpoint.x;
+              distanceFromMidpoint.y = distanceFromMidpoint.y - canvasMidpoint.y;
+            }
 
-            const multiplier = 100
-            // You might need to adjust these positions based on your specific scene setup
-            sceneObject.position.x = vector.x * multiplier;
-            sceneObject.position.y = vector.y * multiplier;
+            // take the center location and find the percent of x or y in the quandrant
+            const percentTranslated = { x: 0, y: 0 };
+            percentTranslated.x = distanceFromMidpoint.x / canvasMidpoint.x;
+            percentTranslated.y = distanceFromMidpoint.y / canvasMidpoint.y;
+
+            // take the percent translated and multiply it by the 3d world max x (assuming its 9)
+            const worldPosition = { x: 0, y: 0 };
+            worldPosition.x = percentTranslated.x * maxWorldPositions.x;
+            worldPosition.y = percentTranslated.y * maxWorldPositions.y;
+
+            // set the position of the model
+            if (containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 1
+              sceneObject.position.x = worldPosition.x;
+              sceneObject.position.y = worldPosition.y;
+            } else if (!containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 2
+              sceneObject.position.x = -worldPosition.x;
+              sceneObject.position.y = worldPosition.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 3
+              sceneObject.position.x = -worldPosition.x;
+              sceneObject.position.y = -worldPosition.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 4
+              sceneObject.position.x = worldPosition.x;
+              sceneObject.position.y = -worldPosition.y;
+            }
           }
 
           sceneObject.rotation.x += 0.001;
