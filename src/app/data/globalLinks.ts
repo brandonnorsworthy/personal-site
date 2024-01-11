@@ -53,15 +53,15 @@ const globalLinks: GlobalLink[] = [
     ]
   },
   {
-    name: "Blog",
-    url: "/blog",
-    model: "house",
-    coming: "Q1/2024",
-  },
-  {
     name: "Servers",
     description: "A menu of my deployed container servers for games (Terraria, ARK... ) so everyone can check the status of the servers and see if they are online or not.",
     url: "/servers",
+    coming: "Q1/2024",
+  },
+  {
+    name: "About",
+    description: "A little bit about me, my background, my hobbies, and my goals.",
+    url: "/about",
     coming: "Q1/2024",
   },
   {
@@ -104,6 +104,30 @@ const globalLinks: GlobalLink[] = [
         coming: "Q1/2024",
       },
     ],
+  },
+  {
+    name: "Portfolio",
+    description: "A portfolio of my work, including projects, blog posts, and other things I have done.",
+    url: "/portfolio",
+    coming: "Q1/2024",
+  },
+  {
+    name: "Contact",
+    description: "Contact me via email, linkedin, or github.",
+    url: "/contact",
+    coming: "Q1/2024",
+  },
+  {
+    name: "Resume",
+    description: "My resume, a downloadable pdf and a web version.",
+    url: "/resume",
+    coming: "Q1/2024",
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+    model: "house",
+    coming: "Q1/2024",
   },
 ]
 

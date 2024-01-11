@@ -1,12 +1,13 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import * as THREE from "three";
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import routeObjectModels, { routeObjectModelTypes } from "../../data/routeObjectModels";
 
 const HomeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const [backgroundDimQuantity, setBackgroundDimQuantity] = useState(0.5);
 
   useEffect(() => {
     const mountRefCurrent = mountRef.current;
@@ -27,12 +28,36 @@ const HomeScene: React.FC = () => {
     }
 
     // set up lighting
-    const ambientlight = new THREE.AmbientLight(0xffffff, 0.1);
+    const lightColor = 0xFFFFFF;
+
+    const ambientlight = new THREE.AmbientLight(lightColor, 0.1);
     scene.add(ambientlight);
 
-    const light = new THREE.PointLight(0xffffff, 1000);
+    const light = new THREE.PointLight(lightColor, 1000);
     light.position.set(10, 10, 10);
     scene.add(light);
+
+    // test cubes
+    const testCubeLocations = [
+      { x: 0, y: 0 },
+      { x: 1, y: 1 },
+      { x: 1, y: -1 },
+      { x: -1, y: 1 },
+      { x: -1, y: -1 },
+    ];
+    for (let index = 0; index < testCubeLocations.length; index++) {
+      const { x, y } = testCubeLocations[index];
+      const geometry = new THREE.BoxGeometry();
+
+      const g = Math.floor(Math.random() * 255).toString(16);
+
+      const material = new THREE.MeshBasicMaterial({ color: `#88${g}ff` });
+      const cube = new THREE.Mesh(geometry, material);
+      const postitionMultiplier = 5;
+      cube.position.x = x * postitionMultiplier;
+      cube.position.y = y * postitionMultiplier;
+      scene.add(cube);
+    }
 
     // load models
     const loadModel = (model: routeObjectModelTypes): Promise<{ sceneObject: THREE.Object3D, dataObject: routeObjectModelTypes }> => {
@@ -56,8 +81,6 @@ const HomeScene: React.FC = () => {
       });
     };
 
-    // ... (previous setup)
-
     Promise.all(routeObjectModels.map(loadModel)).then(initializedModels => {
       // set up animation
       const animate = () => {
@@ -66,25 +89,76 @@ const HomeScene: React.FC = () => {
         for (const { sceneObject, dataObject } of initializedModels) {
           const taggedDiv = document.querySelector(`[data-model="${dataObject.name}"]`);
           if (taggedDiv) {
-            const { x, y, width, height } = taggedDiv.getBoundingClientRect();
+            const canvas = renderer.domElement;
+            const container = taggedDiv.getBoundingClientRect();
+            const containerPosition = { isXPositive: false, isYPositive: false };
+            const maxWorldPositions = { x: 9, y: 7 };
 
-            // Normalize screen coordinates
-            const screenX = (x / window.innerWidth) * 2 - 1;
-            const screenY = -(y / window.innerHeight) * 2 + 1;
+            // define the canvas quadrants
+            // canvasMidpoint = canvasWidth / 2
+            const canvasWidth = canvas.clientWidth;
+            const canvasHeight = canvas.clientHeight;
+            const canvasMidpoint = { x: 0, y: 0 };
+            canvasMidpoint.x = canvasWidth / 2;
+            canvasMidpoint.y = canvasHeight / 2;
 
-            console.log("x", x, screenX, window.innerWidth)
-            console.log("y", y, screenY, window.innerHeight)
+            console.log('container', dataObject.name, taggedDiv, container)
+            // find what quandrant the tagged container is in
+            // positiveX = containerPosition is more than canvasMidpoint
+            containerPosition.isXPositive = container.x > canvasMidpoint.x;
+            // positiveY = containerPosition is more than canvasMidpoint
+            containerPosition.isYPositive = container.y < canvasMidpoint.y;
 
-            // Vector for 3D coordinates
-            const vector = new THREE.Vector3(screenX, screenY, 10);
+            // the center of the tagged container
+            // containerCenterPosition = (containerPosition - canvasMidpoint) - (containerWidth / 2)
+            const containerCenterPosition = { x: 0, y: 0 };
+            containerCenterPosition.x = (container.x) + (container.width / 2);
+            containerCenterPosition.y = (container.y) + (container.height / 2);
+            console.log('containerCenterPosition', dataObject.name, containerCenterPosition)
 
-            // Unproject to 3D space
-            vector.unproject(camera);
+            if (containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 1
+              containerCenterPosition.x = containerCenterPosition.x - canvasMidpoint.x;
+            } else if (!containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 2
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 3
+              containerCenterPosition.y = containerCenterPosition.x - canvasMidpoint.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 4
+              containerCenterPosition.x = containerCenterPosition.x - canvasMidpoint.x;
+              containerCenterPosition.y = containerCenterPosition.x - canvasMidpoint.y;
+            }
 
-            const multiplier = 100
-            // You might need to adjust these positions based on your specific scene setup
-            sceneObject.position.x = vector.x * multiplier;
-            sceneObject.position.y = vector.y * multiplier;
+            // take the center location and find the percent of x or y in the quandrant
+            const percentTranslated = { x: 0, y: 0 };
+
+            percentTranslated.x = containerCenterPosition.x / canvasMidpoint.x;
+            percentTranslated.y = containerCenterPosition.y / canvasMidpoint.y;
+
+            // take the percent translated and multiply it by the 3d world max x (assuming its 9)
+            const worldPosition = { x: 0, y: 0 };
+            worldPosition.x = percentTranslated.x * maxWorldPositions.x;
+            worldPosition.y = percentTranslated.y * maxWorldPositions.y;
+
+            // set the position of the model
+            if (containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 1
+              sceneObject.position.x = worldPosition.x;
+              sceneObject.position.y = worldPosition.y;
+            } else if (!containerPosition.isXPositive && containerPosition.isYPositive) {
+              // quadrant 2
+              sceneObject.position.x = -worldPosition.x;
+              sceneObject.position.y = worldPosition.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 3
+              sceneObject.position.x = -worldPosition.x;
+              sceneObject.position.y = -worldPosition.y;
+            } else if (!containerPosition.isXPositive && !containerPosition.isYPositive) {
+              // quadrant 4
+              sceneObject.position.x = worldPosition.x;
+              sceneObject.position.y = -worldPosition.y;
+            }
           }
 
           sceneObject.rotation.x += 0.001;
