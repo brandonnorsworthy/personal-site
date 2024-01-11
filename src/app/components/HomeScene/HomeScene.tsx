@@ -7,7 +7,6 @@ import routeObjectModels, { routeObjectModelTypes } from "../../data/routeObject
 
 const HomeScene: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [backgroundDimQuantity, setBackgroundDimQuantity] = useState(0.5);
 
   useEffect(() => {
     const mountRefCurrent = mountRef.current;
@@ -30,7 +29,7 @@ const HomeScene: React.FC = () => {
     // set up lighting
     const lightColor = 0xFFFFFF;
 
-    const ambientlight = new THREE.AmbientLight(lightColor, 0.1);
+    const ambientlight = new THREE.AmbientLight(lightColor, 10);
     scene.add(ambientlight);
 
     const light = new THREE.PointLight(lightColor, 1000);
@@ -69,7 +68,7 @@ const HomeScene: React.FC = () => {
             const canvas = renderer.domElement;
             const container = taggedDiv.getBoundingClientRect();
             const containerPosition = { isXPositive: false, isYPositive: false };
-            const maxWorldPositions = { x: 9, y: 7 };
+            const maxWorldPositions = { x: window.innerWidth / 180, y: window.innerHeight / 180 };
 
             // define the canvas quadrants
             const canvasWidth = canvas.clientWidth;
@@ -112,7 +111,7 @@ const HomeScene: React.FC = () => {
             percentTranslated.x = distanceFromMidpoint.x / canvasMidpoint.x;
             percentTranslated.y = distanceFromMidpoint.y / canvasMidpoint.y;
 
-            // take the percent translated and multiply it by the 3d world max x (assuming its 9)
+            // take the percent translated and multiply it by the 3d world max x
             const worldPosition = { x: 0, y: 0 };
             worldPosition.x = percentTranslated.x * maxWorldPositions.x;
             worldPosition.y = percentTranslated.y * maxWorldPositions.y;
@@ -163,7 +162,10 @@ const HomeScene: React.FC = () => {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-full fixed top-0 left-0 z-[-1]"></div>;
+  return <div
+    ref={mountRef}
+    className="w-full h-full fixed top-0 left-0 z-[-1]">
+  </div>;
 };
 
 export default HomeScene;

@@ -59,12 +59,6 @@ const globalLinks: GlobalLink[] = [
     coming: "Q1/2024",
   },
   {
-    name: "About",
-    description: "A little bit about me, my background, my hobbies, and my goals.",
-    url: "/about",
-    coming: "Q1/2024",
-  },
-  {
     name: "Projects",
     description: "Coding, Engineering, Game Development, or other creative outlets.",
     url: "/projects",
@@ -104,24 +98,6 @@ const globalLinks: GlobalLink[] = [
         coming: "Q1/2024",
       },
     ],
-  },
-  {
-    name: "Portfolio",
-    description: "A portfolio of my work, including projects, blog posts, and other things I have done.",
-    url: "/portfolio",
-    coming: "Q1/2024",
-  },
-  {
-    name: "Contact",
-    description: "Contact me via email, linkedin, or github.",
-    url: "/contact",
-    coming: "Q1/2024",
-  },
-  {
-    name: "Resume",
-    description: "My resume, a downloadable pdf and a web version.",
-    url: "/resume",
-    coming: "Q1/2024",
   },
   {
     name: "Blog",
