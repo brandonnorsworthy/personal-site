@@ -37,28 +37,6 @@ const HomeScene: React.FC = () => {
     light.position.set(10, 10, 10);
     scene.add(light);
 
-    // test cubes
-    const testCubeLocations = [
-      { x: 0, y: 0 },
-      { x: 1, y: 1 },
-      { x: 1, y: -1 },
-      { x: -1, y: 1 },
-      { x: -1, y: -1 },
-    ];
-    for (let index = 0; index < testCubeLocations.length; index++) {
-      const { x, y } = testCubeLocations[index];
-      const geometry = new THREE.BoxGeometry();
-
-      const g = Math.floor(Math.random() * 255).toString(16);
-
-      const material = new THREE.MeshBasicMaterial({ color: `#88${g}ff` });
-      const cube = new THREE.Mesh(geometry, material);
-      const postitionMultiplier = 5;
-      cube.position.x = x * postitionMultiplier;
-      cube.position.y = y * postitionMultiplier;
-      scene.add(cube);
-    }
-
     // load models
     const loadModel = (model: routeObjectModelTypes): Promise<{ sceneObject: THREE.Object3D, dataObject: routeObjectModelTypes }> => {
       return new Promise((resolve, reject) => {
@@ -82,7 +60,6 @@ const HomeScene: React.FC = () => {
     };
 
     Promise.all(routeObjectModels.map(loadModel)).then(initializedModels => {
-      // set up animation
       const animate = () => {
         requestAnimationFrame(animate);
 
@@ -95,7 +72,6 @@ const HomeScene: React.FC = () => {
             const maxWorldPositions = { x: 9, y: 7 };
 
             // define the canvas quadrants
-            // canvasMidpoint = canvasWidth / 2
             const canvasWidth = canvas.clientWidth;
             const canvasHeight = canvas.clientHeight;
             const canvasMidpoint = { x: 0, y: 0 };
@@ -109,7 +85,6 @@ const HomeScene: React.FC = () => {
             containerPosition.isYPositive = container.y < canvasMidpoint.y;
 
             // the center of the tagged container
-            // containerCenterPosition = (containerPosition - canvasMidpoint) - (containerWidth / 2)
             const distanceFromMidpoint = { x: 0, y: 0 };
             distanceFromMidpoint.x = (container.x) + (container.width / 2);
             distanceFromMidpoint.y = (container.y) + (container.height / 2);
