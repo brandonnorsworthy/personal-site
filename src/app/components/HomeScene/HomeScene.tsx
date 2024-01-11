@@ -29,7 +29,7 @@ const HomeScene: React.FC = () => {
     // set up lighting
     const lightColor = 0xFFFFFF;
 
-    const ambientlight = new THREE.AmbientLight(lightColor, 0.5);
+    const ambientlight = new THREE.AmbientLight(lightColor, 10);
     scene.add(ambientlight);
 
     const light = new THREE.PointLight(lightColor, 1000);
