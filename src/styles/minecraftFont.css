@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/fonts/Minecraftia.ttf') format('truetype');
+}
+
+.minecraftFont {
+  font-family: 'Minecraft';
+  transform: scaleY(1.05);
+}

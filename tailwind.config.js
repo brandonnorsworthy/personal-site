@@ -45,9 +45,21 @@ module.exports = {
       'blue': colors.blue,
       'yellow': colors.yellow,
     },
+    boxShadow: {
+      'inset-t-b': 'inset 0 30px 30px -15px rgba(0, 0, 0, 1), inset 0 -30px 30px -15px rgba(0, 0, 0, 1)'
+    },
     dropShadow: {
       'routeTilesTitle': '0 1px 2px rgba(0, 0, 0, 0.75)',
       'routeTilesDescription': '0 1px 2px rgba(0, 0, 0, 0.75)',
+      'minecraftText': '4px 4px 0 rgba(75, 75, 75, 0.75)',
+    },
+    backgroundImage: {
+      'minecraft-dirt': 'url("/images/minecraft/dirtRepeat.png")',
+    },
+    backgroundSize: {
+      '16': '4rem',
+      '32': '8rem',
+      '64': '16rem',
     }
   },
   plugins: [],
