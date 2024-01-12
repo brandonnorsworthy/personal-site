@@ -36,7 +36,7 @@ const Page: React.FC = () => {
             rel="noopener noreferrer">
             <div className='w-80 h-80 border-solid border-8 border-wedding-secondary-shadow absolute rotate-[17deg] z-20 left-[55%] overflow-hidden '>
               <Image
-                src={'/image/CityWalk.png'}
+                src={'/images/CityWalk.png'}
                 alt='Brandon and Madison infront of downtown houston, texas'
                 className='-translate-y-12'
                 width={400}
@@ -44,7 +44,7 @@ const Page: React.FC = () => {
             </div>
             <div className='w-80 h-80  border-solid border-8 absolute -rotate-[10deg] z-10 right-[45%] flex justify-center items-center overflow-hidden'>
               <Image
-                src={'/image/CrateAndBarrel.png'}
+                src={'/images/CrateAndBarrel.png'}
                 alt='crate and barrel logo'
                 width={400}
                 height={400} />
