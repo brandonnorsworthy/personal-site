@@ -11,7 +11,7 @@ const MinecraftButton: React.FC<MinecraftButtonProps> = ({ text, onClick }) => {
     <button
       onClick={onClick}
       className='px-3 py-1 text-white rounded-md bg-minecraft-blue'>
-      <MinecraftLabel children={text} />
+      <MinecraftLabel text={text} />
     </button>
   )
 };
