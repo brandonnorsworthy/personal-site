@@ -2,22 +2,32 @@
 
 import React from "react";
 
-const RSVPForm: React.FC = () => {
+interface rsvpFormProps {
+  groupName: string;
+  rsvpCode: string;
+}
+
+const RSVPForm: React.FC<rsvpFormProps> = (props) => {
+  const { groupName, rsvpCode } = props;
+
   return (
     <form className='w-full md:w-[60%] lg:w-[65%] xl:w-[650px] py-4 px-8 rounded-lg bg-white  flex flex-col items-start'>
       <span className='w-full text-2xl font-bold text-center'>RSVP</span>
+      <span className='w-full mt-2 text-xl text-center'>Hello, {groupName}!</span>
       <div className='flex items-center w-full mt-2'>
         <label
           className='min-w-max'
           title="RSVP Code is on your invitation."
           htmlFor='rsvp-code'>
-          RSVP Code (on invitation)
+          RSVP Code
         </label>
         <input
           title="RSVP Code is on your invitation."
           className='w-full p-2 ml-4 rounded-lg bg-wedding-gray-highlight'
           type='text'
-          id='rsvp-code' />
+          id='rsvp-code'
+          readOnly={rsvpCode ? true : false}
+          value={rsvpCode} />
       </div>
 
       <div className='flex items-center w-full mt-2'>
@@ -29,7 +39,7 @@ const RSVPForm: React.FC = () => {
         </label>
         <select
           className='w-full p-2 ml-4 rounded-lg bg-wedding-gray-highlight'
-          defaultValue={'no'}
+          defaultValue={'yes'}
           title='Will you be attending?'
           id='rsvp-yes-no'>
           <option value='no'>No</option>

@@ -15,6 +15,7 @@ const Navbar: React.FC = () => {
           <Link href="/wedding/faqs" className="ml-4 text-base underline">FAQs</Link>
           <li className='items-center hidden lg:flex'>
             <Link href="/wedding/gallery" className="ml-4 text-base underline">Gallery</Link>
+            <Link href="/wedding/admin" className="ml-4 text-base underline">Admin</Link>
           </li>
         </ul>
       </div>

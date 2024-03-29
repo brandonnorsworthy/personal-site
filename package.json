@@ -10,8 +10,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "seed": "node ./db/seeder.js",
+    "lint": "next lint"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
@@ -30,6 +29,7 @@
   },
   "devDependencies": {
     "@types/node": "20.10.5",
+    "@types/pg": "^8.11.4",
     "@types/react": "18.2.45",
     "eslint-plugin-import": "^2.29.1",
     "typescript": "^5.3.3"
