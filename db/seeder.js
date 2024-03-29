@@ -1,49 +1,54 @@
-// import { Pool } from 'pg';
-// require('dotenv').config();
+require('dotenv').config();
 const weddingInviteGroups = require('./weddingInviteGroups.json');
+const pool = require('./database.js');
 
-// const pool = new Pool({
-//   user: process.env.user,
-//   host: process.env.host,
-//   database: process.env.database,
-//   password: process.env.password,
-//   port: 5432,
-// });
+async function fetchData() {
+  try {
+    const res = await pool.query('SELECT * FROM wedding_invites_group');
+    console.log(res.rows); // Output the data
+  } catch (err) {
+    console.error(err);
+  } finally {
+    await pool.end(); // Closes the connection
+  }
+}
 
-// async function fetchData() {
-//   try {
-//     const res = await pool.query('SELECT * FROM your_table');
-//     console.log(res.rows); // Output the data
-//   } catch (err) {
-//     console.error(err);
-//   } finally {
-//     await pool.end(); // Closes the connection
-//   }
-// }
-
-// fetchData();
-
-function trimObjectValues() {
-  const newData = weddingInviteGroups.map((object) => {
-    const trimmedObject = {};
-    for (let key in object) {
-      trimmedObject[key] = object[key].trim();
+async function createGroups() {
+  for (const object of weddingInviteGroups) {
+    try {
+      await pool.query(
+        'INSERT INTO wedding_invites_group (id, name, address, hasscanned, created_at) VALUES ($1, $2, $3, false, $4)',
+        [object.id, object.groupname, object.address, new Date()]
+      );
+      console.log(`Inserted: ${object.groupname}`);
+    } catch (err) {
+      console.error(err);
     }
-    return trimmedObject;
-  })
+  }
 
-  console.log(newData)
+}
+
+async function createPeople() {
+  for (const object of weddingInviteGroups) {
+    if (object.people) {
+      const people = object.people.split(',').map(person => person.trim());
+
+      for (const person of people) {
+        const [firstname, lastname] = person.split(' ');
+
+        try {
+          await pool.query(
+            'INSERT INTO wedding_invites_people (firstname, lastname, group_id, created_at) VALUES ($1, $2, $3, $4)',
+            [firstname, lastname, object.id, new Date()]
+          );
+          console.log(`Inserted: ${firstname} ${lastname}`);
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    }
+  }
 };
 
-function combinePeople() {
-  const newData = weddingInviteGroups.map((object) => {
-    const { firstPerson, people } = object;
-    const newObject = { ...object, people: `${firstPerson}, ${people}` };
-    delete newObject.firstPerson;
-    return newObject;
-  })
-
-  console.log(newData)
-};
-
-combinePeople();
+createGroups();
+createPeople();
