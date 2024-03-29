@@ -11,9 +11,15 @@ export const metadata: { title: string, description: string } = {
   description: 'Homepage for information about Brandon and Madison\'s wedding in 2024! RSVP, Travel, and Registry information.',
 }
 
-const Page: React.FC = () => {
+interface PageProps {
+  searchParams: { rsvp: string }
+}
+
+const Page: React.FC<PageProps> = ({ searchParams }) => {
+  console.log(searchParams)
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
+      <p>{searchParams.rsvp}</p>
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
         <div className='mt-14 h-[65vh] w-full bg-wedding-gray-highlight flex justify-center items-center'>hero img</div>
       </div>
@@ -41,7 +47,7 @@ const Page: React.FC = () => {
       <section
         className='flex justify-center w-full px-16 py-32 bg-wedding-primary'
         id='rsvp'>
-        <RSVPForm />
+        <RSVPForm/>
       </section>
     </main >
   )
