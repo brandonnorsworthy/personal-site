@@ -1,9 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# db
-/db/weddingInviteGroups.json
+# private items
+/private
 
 .env
+.env.local
 
 .vscode
 

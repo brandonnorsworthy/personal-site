@@ -1,0 +1,80 @@
+import React from "react";
+import Navbar from "../components/Navbar";
+import { queryHelper } from "../../../db/database";
+import { IGroup, IPeople } from "../typescript/interfaces";
+
+export const metadata = {
+  title: 'Gallery',
+  description: 'Gallery of photos from Brandon and Madison\'s wedding in 2024!',
+}
+
+const Page: React.FC = async () => {
+  const people: IPeople[] = await fetchPeople()
+  const groups: IGroup[] = await fetchGroups()
+
+  return (
+    <main className='min-h-[85vh] flex flex-col items-center'>
+      <Navbar />
+      <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Group ID</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {people.map((person) => (
+              <tr className="odd:bg-gray-200" key={person.id}>
+                <td className="px-4">{person.firstname} {person.lastname}</td>
+                <td className="px-4">{person.group_id}</td>
+                <td className="px-4">{person.status === null ? 'Unknown' : person.status ? 'Attending' : 'Not Attending'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="mt-6 w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center">
+        <table>
+          <thead>
+            <tr>
+              <th>Group Name</th>
+              <th>Confirmed</th>
+              <th>Has Scanned</th>
+            </tr>
+          </thead>
+          <tbody>
+            {groups.map((group) => (
+              <tr className="odd:bg-gray-200" key={group.id}>
+                <td className="px-4">{group.name}</td>
+                <td className="px-4">{group.confirmed === null ? 'Unknown' : group.confirmed ? 'Confirmed' : 'Not Confirmed'}</td>
+                <td className="px-4">{group.hasScanned ? 'Has Scanned' : 'Has Not Scanned'}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </main>
+  );
+};
+
+const fetchPeople = async () => {
+  try {
+    return await queryHelper('SELECT * FROM wedding_invites_people');
+  } catch (error) {
+    console.error('Error fetching people:', error);
+    return [];
+  }
+};
+
+const fetchGroups = async () => {
+  try {
+    return await queryHelper('SELECT * FROM wedding_invites_group');
+  } catch (error) {
+    console.error('Error fetching groups:', error);
+    return [];
+  }
+}
+
+export default Page;
