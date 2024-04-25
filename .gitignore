@@ -2,6 +2,7 @@
 
 # private items
 /private
+/src/db/*.json
 
 .env
 .env.local

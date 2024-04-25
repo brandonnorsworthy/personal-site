@@ -11,7 +11,7 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
   const { groupName, rsvpCode } = props;
 
   return (
-    <form className='w-full md:w-[60%] lg:w-[65%] xl:w-[650px] py-4 px-8 rounded-lg bg-white  flex flex-col items-start'>
+    <form className='min-h-full w-full md:w-[60%] lg:w-[65%] xl:w-[650px] py-4 px-8 rounded-lg bg-white flex flex-col items-start'>
       <span className='w-full text-2xl font-bold text-center'>RSVP</span>
       <span className='w-full mt-2 text-xl text-center'>Hello, {groupName}!</span>
       <div className='flex items-center w-full mt-2'>
@@ -63,26 +63,10 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
           id='rsvp-amount' />
       </div>
 
-      <div className='flex items-center w-full mt-2'>
-        <label
-          className='min-w-max'
-          title='Select the food you would like.'
-          htmlFor='rsvp-food'>
-          What food would you like?
-        </label>
-        <select
-          className='w-full p-2 ml-4 rounded-lg bg-wedding-gray-highlight'
-          title='Select the food you would like.'
-          id='rsvp-food'>
-          <option value='chicken'>Chicken</option>
-          <option value='beef'>Beef</option>
-        </select>
-      </div>
-
       <div className='flex justify-center w-full mt-4'>
         <button
           className='px-4 py-1 text-white rounded bg-wedding-primary-shadow text-bold'
-          onClick={(event) => { event.preventDefault(); console.log('submit') }}
+          onClick={(event) => { event.preventDefault() }}
           type='submit'>
           Submit
         </button>

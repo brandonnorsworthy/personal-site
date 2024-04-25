@@ -1,21 +1,22 @@
 import { Pool } from 'pg';
 import { DATABASE } from '../config/variables';
 
-interface DatabaseConfig {
-  user: string;
-  host: string;
-  database: string;
-  password: string;
-  port: number;
+let pool = null;
+if (DATABASE.CONNECTION_STRING) {
+  pool = new Pool({
+    connectionString: DATABASE.CONNECTION_STRING,
+  });
+} else if (DATABASE.USER && DATABASE.HOST && DATABASE.DATABASE && DATABASE.PASSWORD && DATABASE.PORT) {
+  pool = new Pool({
+    user: DATABASE.USER,
+    host: DATABASE.HOST,
+    database: DATABASE.DATABASE,
+    password: DATABASE.PASSWORD,
+    port: parseInt(DATABASE.PORT, 10),
+  });
+} else {
+  throw new Error('No Database Configuration Found');
 }
-
-const pool = new Pool({
-  user: DATABASE.USER,
-  host: DATABASE.HOST,
-  database: DATABASE.DATABASE,
-  password: DATABASE.PASSWORD,
-  port: DATABASE.PORT,
-} as DatabaseConfig);
 
 /**
  * Executes a query against the database.

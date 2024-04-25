@@ -1,6 +1,10 @@
 require('dotenv').config();
 const weddingInviteGroups = require('./weddingInviteGroups.json');
-const pool = require('./database.js');
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  connectionString: process.env.POSTGRES_URL,
+});
 
 async function fetchData() {
   try {
@@ -14,24 +18,23 @@ async function fetchData() {
 }
 
 async function createGroups() {
-  for (const object of weddingInviteGroups) {
+  for (const group of weddingInviteGroups) {
     try {
       await pool.query(
         'INSERT INTO wedding_invites_group (id, name, address, hasscanned, created_at) VALUES ($1, $2, $3, false, $4)',
-        [object.id, object.groupname, object.address, new Date()]
+        [group.id, group.groupname, group.address, new Date()]
       );
-      console.log(`Inserted: ${object.groupname}`);
+      console.log(`Inserted: ${group.groupname}`);
     } catch (err) {
       console.error(err);
     }
   }
-
 }
 
 async function createPeople() {
-  for (const object of weddingInviteGroups) {
-    if (object.people) {
-      const people = object.people.split(',').map(person => person.trim());
+  for (const group of weddingInviteGroups) {
+    if (group.people) {
+      const people = group.people.split(',').map(person => person.trim());
 
       for (const person of people) {
         const [firstname, lastname] = person.split(' ');
@@ -39,7 +42,7 @@ async function createPeople() {
         try {
           await pool.query(
             'INSERT INTO wedding_invites_people (firstname, lastname, group_id, created_at) VALUES ($1, $2, $3, $4)',
-            [firstname, lastname, object.id, new Date()]
+            [firstname, lastname, group.id, new Date()]
           );
           console.log(`Inserted: ${firstname} ${lastname}`);
         } catch (err) {
@@ -49,6 +52,16 @@ async function createPeople() {
     }
   }
 };
+
+pool.query(
+  'INSERT INTO wedding_invites_people (firstname, lastname, group_id, created_at) VALUES ($1, $2, $3, $4)',
+  ['John', 'Doe', 1, new Date()], (err, res) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('Inserted: John Doe');
+    }
+  });
 
 createGroups();
 createPeople();

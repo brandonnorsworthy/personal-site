@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { queryHelper } from "../../../db/database";
 import { IGroup, IPeople } from "../typescript/interfaces";
+import { fetchGroups, fetchPeople } from "../db/queries";
 
 export const metadata = {
   title: 'Gallery',
@@ -59,22 +59,5 @@ const Page: React.FC = async () => {
   );
 };
 
-const fetchPeople = async () => {
-  try {
-    return await queryHelper('SELECT * FROM wedding_invites_people');
-  } catch (error) {
-    console.error('Error fetching people:', error);
-    return [];
-  }
-};
-
-const fetchGroups = async () => {
-  try {
-    return await queryHelper('SELECT * FROM wedding_invites_group');
-  } catch (error) {
-    console.error('Error fetching groups:', error);
-    return [];
-  }
-}
 
 export default Page;

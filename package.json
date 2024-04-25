@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node ./db/seeder.js"
+    "seed": "node ./src/db/seeder.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.1",
