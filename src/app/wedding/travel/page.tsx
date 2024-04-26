@@ -9,7 +9,9 @@ export const metadata = {
 const Page: React.FC = () => {
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
-      <Navbar />
+      <div className="w-full bg-wedding-primary-highlight">
+        <Navbar />
+      </div>
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-center'>
         <div className='mt-14 h-[65vh] w-full bg-wedding-gray-highlight flex justify-center items-center'>animated line on map of the airport to the beach house area (grayscale map with secondary color as the line)</div>
       </div>

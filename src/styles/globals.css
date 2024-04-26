@@ -13,13 +13,14 @@
     --color-global-gray: #373737;
     --color-global-gray-highlight: #cacaca;
 
-    --color-wedding-primary: #A9DEDA;
-    --color-wedding-primary-highlight: #DBFFFC;
-    --color-wedding-primary-shadow: #60918E;
-    --color-wedding-secondary: #DEB9A6;
-    --color-wedding-secondary-highlight: #ECECEC;
+    --color-wedding-primary-highlight-2: #EDF6F8;
+    --color-wedding-primary-highlight: #A8C5C9;
+    --color-wedding-primary: #6D8CA3;
+    --color-wedding-primary-shadow: #45525F;
+    --color-wedding-secondary-highlight: #F5E4DF;
+    --color-wedding-secondary: #E2B2A0;
     --color-wedding-secondary-shadow: #BD8062;
-    --color-wedding-gray: #3F3F3F;
-    --color-wedding-gray-highlight: #D9D9D9;
+    --color-wedding-gray-highlight: #FBFEFF;
+    --color-wedding-gray: #E5ECEF;
   }
 }

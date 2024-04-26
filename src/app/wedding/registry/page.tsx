@@ -14,7 +14,9 @@ const Page: React.FC = () => {
 
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>
-      <Navbar />
+      <div className="w-full bg-wedding-primary-highlight">
+        <Navbar />
+      </div>
       <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-start'>
         <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>[Gift Registry]</span>
         <div className="flex flex-col items-center justify-center w-full mt-8">
