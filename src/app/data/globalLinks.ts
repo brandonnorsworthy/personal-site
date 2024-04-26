@@ -2,9 +2,8 @@ type GlobalLink = {
   name: string;
   description?: string;
   url: string;
-  coming: string;
+  coming?: string;
   model?: string;
-  override?: boolean;
   ignore?: boolean;
   externalLink?: boolean;
   sublinks?: GlobalLinkSublink[];
@@ -28,7 +27,6 @@ const globalLinks: GlobalLink[] = [
   {
     name: "Wedding",
     url: "/wedding",
-    coming: "Q1/2024",
   },
   {
     name: "Roadmap",

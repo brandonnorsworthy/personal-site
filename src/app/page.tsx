@@ -23,6 +23,7 @@ const Home: React.FC<HomeProps> = ({ responsiveConstraintClasses }) => {
               title={link.name}
               description={link.description}
               model={link.model}
+              disable={link.coming ? true : false}
               href={link.url}
               key={link.url + index}
               externalLink={link.externalLink} />)
