@@ -39,7 +39,12 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
             <h2 className='text-6xl font-bold text-center'>Brandon and Madison</h2>
             <h3 className='mt-6 text-2xl text-center'>are getting married</h3>
             <div className='h-[400px] mt-20 relative'>
-              <Image src={hero} alt='hero img' className='absolute top-0 border-8 border-solid border-wedding-gray-highlight' />
+              <Image
+                src={hero}
+                alt='hero img'
+                className='absolute top-0 border-8 border-solid border-wedding-gray-highlight'
+                priority={true}
+                placeholder='blur' />
             </div>
           </div>
         </div>
@@ -49,7 +54,9 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
       <section className={[responsiveConstraintClasses, 'flex flex-col items-center justify-center'].join(" ")}>
         <h1 className='font-bold text-wedding-primary text-7xl'>26 October 2024</h1>
         <h3 className='mt-6 text-2xl font-bold text-center text-wedding-primary-shadow'>in Houston, Texas</h3>
-        <Image src={fakeArt} alt='hero img' className='w-[65%] h-40 mt-6' />
+        <Image
+          src={fakeArt} alt='hero img'
+          className='w-[65%] h-40 mt-6' />
       </section>
 
       {/* About Us */}
@@ -59,12 +66,20 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
             <div className='max-w-[440px] flex flex-col'>
               <h3 className='mt-10 text-4xl font-bold text-wedding-primary-shadow'>Madison</h3>
               <p className='mt-10 text-wedding-primary-shadow'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eum quaerat fuga cum. Nihil odit repellat ad rem sed magni nostrum nam officiis? Dolorem iure saepe repellendus, quas optio quis.</p>
-              <Image src={focusMadison} alt='headshot of madison' className='w-full mt-10 border-b-[10px] border-solid border-wedding-secondary-highlight' />
+              <Image
+                src={focusMadison}
+                alt='headshot of madison'
+                className='w-full mt-10 border-b-[10px] border-solid border-wedding-secondary-highlight'
+                placeholder='blur' />
             </div>
           </div>
           <div className='absolute right-0 flex flex-col items-center justify-start bottom-10'>
             <div className='max-w-[440px] flex flex-col'>
-              <Image src={focusBrandon} alt='headshot of brandon' className='w-full border-b-[10px] border-solid border-wedding-secondary-highlight' />
+              <Image
+                src={focusBrandon}
+                alt='headshot of brandon'
+                className='w-full border-b-[10px] border-solid border-wedding-secondary-highlight'
+                placeholder='blur' />
               <h3 className='mt-10 text-4xl font-bold text-wedding-primary-shadow'>Brandon</h3>
               <p className='mt-10 mb-10 text-wedding-primary-shadow'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eum quaerat fuga cum. Nihil odit repellat ad rem sed magni nostrum nam officiis? Dolorem iure saepe repellendus, quas optio quis.</p>
             </div>

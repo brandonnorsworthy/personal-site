@@ -20,8 +20,8 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
         </div>
       </div>
       <div className={responsiveConstraintClasses}>
-        <div className='flex flex-col items-center w-full'>
-          <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>Gift Registry</span>
+        <div className='flex flex-col items-start w-full'>
+          <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>Travel & Stay</span>
           <div className='mt-14 h-[65vh] w-full bg-wedding-gray-highlight flex justify-center items-center'>animated line on map of the airport to the beach house area (grayscale map with secondary color as the line)</div>
         </div>
         <div className='flex flex-col items-start w-full'>

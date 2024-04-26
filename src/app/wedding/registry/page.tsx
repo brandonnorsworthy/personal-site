@@ -5,6 +5,9 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import withLayout from "../../hocs/withLayout";
 
+import cityWalk from "../../../../public/images/CityWalk.png"
+import crateAndBarrelLogo from "../../../../public/images/CrateAndBarrel.png"
+
 export const metadata = {
   title: 'Gift Registry',
   description: 'Here, you can include details about the location, how to get there, parking information, and other logistics.',
@@ -45,16 +48,18 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
             rel="noopener noreferrer">
             <div className='w-80 h-80 border-solid border-8 border-wedding-secondary-shadow absolute rotate-[17deg] z-20 left-[55%] overflow-hidden '>
               <Image
-                src={'/images/CityWalk.png'}
+                src={cityWalk}
                 alt='Brandon and Madison infront of downtown houston, texas'
                 className='-translate-y-12'
+                placeholder='blur'
                 width={400}
                 height={400} />
             </div>
             <div className='w-80 h-80  border-solid border-8 absolute -rotate-[10deg] z-10 right-[45%] flex justify-center items-center overflow-hidden'>
               <Image
-                src={'/images/CrateAndBarrel.png'}
+                src={crateAndBarrelLogo}
                 alt='crate and barrel logo'
+                placeholder='blur'
                 width={400}
                 height={400} />
             </div>

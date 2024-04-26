@@ -27,7 +27,7 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
         </div>
       </div>
       <div className={[responsiveConstraintClasses, 'flex flex-col items-start'].join(" ")}>
-        <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>[Frequently Asked Questions]</span>
+        <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>Frequently Asked Questions</span>
         <CollapsableContainer
           title='Wedding Details'
           description='Questions specifically about the wedding day.'
