@@ -5,6 +5,12 @@ import globalLinks from './data/globalLinks'
 import withLayout from './hocs/withLayout'
 import HomeScene from './components/HomeScene'
 
+export const metadata = {
+  title: 'Brandon\'s Personal Site',
+  description: 'Catch-all for Brandon\'s personal projects and interests',
+  image: "https://www.brandonnorsworthy.com/images/ComingSoon.jpg"
+}
+
 interface HomeProps {
   responsiveConstraintClasses: string;
 }
