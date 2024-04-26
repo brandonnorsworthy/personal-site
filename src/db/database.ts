@@ -28,21 +28,23 @@ if (DATABASE.CONNECTION_STRING) {
 export const queryHelper = (queryString: string, queryValues: any[] = [], expectSingleRow: boolean = false): Promise<any[] | any> => {
   return new Promise((resolve, reject) => {
     pool.query(queryString, queryValues, (error, result) => {
-      if (error) {
-        reject(new Error(`Error executing query: ${error.message}`));
-      } else if (!result || !result.rows || result.rows.length === 0) {
-        if (result.command === 'DELETE' || result.command === 'INSERT') {
-          resolve({ count: result.rowCount });
-        } else {
-          resolve([]);
-        }
-      } else {
-        if (expectSingleRow) {
-          resolve(result.rows[0]);
-        } else {
-          resolve(result.rows);
-        }
+      if (error)
+        return reject(new Error(`Error executing query: ${error.message}`));
+
+      // if query worked but was empty
+      if (!result || !result.rows || result.rows.length === 0) {
+        // if query was an insert or delete, return the count of rows affected
+        if (result.command === 'DELETE' || result.command === 'INSERT' || result.command === 'UPDATE')
+          return resolve({ count: result.rowCount });
+
+        // if query was a select return null
+        return resolve(null);
       }
+
+      if (expectSingleRow)
+        return resolve(result.rows[0]);
+
+      return resolve(result.rows);
     });
   });
 };
