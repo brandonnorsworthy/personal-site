@@ -11,7 +11,7 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
     <main className='flex justify-center w-full min-h-[calc(100vh-48px)] bg-gray-600'>
       <article className={[responsiveConstraintClasses, "flex flex-col items-start h-full"].join(" ")}>
         <div>
-          here
+          remind me to finish this lol
         </div>
       </article>
     </main>

@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import React, { useContext } from 'react'
+import React from 'react'
 
 import RouteTile from './components/RouteTile'
 import globalLinks from './data/globalLinks'

@@ -1,5 +1,4 @@
 import React from 'react';
-import RSVPForm from './components/RSVPForm';
 import Navbar from './components/Navbar';
 import { IGroup } from './typescript/interfaces';
 import { fetchGroupById } from './db/queries';

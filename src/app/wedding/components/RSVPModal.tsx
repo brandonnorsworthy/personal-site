@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { IGroup } from "../typescript/interfaces";
 import RSVPForm from "./RSVPForm";
 
@@ -12,24 +12,24 @@ interface rsvpFormProps {
 const RSVPModal: React.FC<rsvpFormProps> = (props) => {
   const { group, rsvpCode } = props;
 
-  if (group.confirmed) {
-    return (
-      <section
-        className='flex justify-center w-full px-16 py-32 bg-wedding-primary'
-        id='rsvp'>
-        <div>Hey it looks like you already checked in please contact us if something changed</div>
-      </section>
-    )
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+  }, []);
+
+  const onModalClose = () => {
+    document.body.style.overflow = 'auto';
   }
 
   return (
     <div
-      className='absolute flex justify-center w-full h-full align-middle bg-gray-500/25'>
-      {
-        group.confirmed
-          ? <div>Hey it looks like you already checked in please contact us if something changed</div>
-          : <RSVPForm groupName={group.name} rsvpCode={rsvpCode} />
-      }
+      className='absolute top-0 left-0 w-full overflow-y-hidden align-middle'>
+      <div className="fixed flex items-center justify-center w-full h-screen bg-gray-500/75">
+        {
+          group.confirmed
+            ? <div>Hey it looks like you already checked in please contact us if something changed</div>
+            : <RSVPForm groupName={group.name} rsvpCode={rsvpCode} onModalClose={onModalClose} />
+        }
+      </div>
     </div>
   )
 }
