@@ -12,7 +12,7 @@ import focusMadison from '../../../public/images/wedding/focus_madison.png';
 import focusBrandon from '../../../public/images/wedding/focus_brandon.png';
 
 export const metadata: { title: string, description: string } = {
-  title: '[Brandon & Madison]',
+  title: 'Brandon & Madison',
   description: 'Homepage for information about Brandon and Madison\'s wedding in 2024! RSVP, Travel, and Registry information.',
 }
 
@@ -30,7 +30,7 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
   }
 
   return (
-    <main className='min-h-[85vh] flex flex-col items-center bg-wedding-gray-highlight'>
+    <main className='min-h-[100vh] flex flex-col items-center bg-wedding-gray-highlight'>
       {/* Hero */}
       <section className='flex justify-center w-full mb-[25%] bg-wedding-primary-highlight'>
         <div className={responsiveConstraintClasses}>

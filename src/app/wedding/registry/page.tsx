@@ -3,22 +3,29 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Navbar from "../components/Navbar";
+import withLayout from "../../hocs/withLayout";
 
 export const metadata = {
   title: 'Gift Registry',
   description: 'Here, you can include details about the location, how to get there, parking information, and other logistics.',
 }
 
-const Page: React.FC = () => {
+interface PageProps {
+  responsiveConstraintClasses: string
+}
+
+const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
   const registry = "https://www.crateandbarrel.com/gift-registry/madison-minton/r6752612";
 
   return (
-    <main className='min-h-[85vh] flex flex-col items-center'>
-      <div className="w-full bg-wedding-primary-highlight">
-        <Navbar />
+    <main className='min-h-[100vh] flex flex-col items-center w-full'>
+      <div className="flex justify-center w-full bg-wedding-primary-highlight">
+        <div className={responsiveConstraintClasses}>
+          <Navbar />
+        </div>
       </div>
-      <div className='w-full md:w-[85%] lg:w-[75%] xl:w-[1000px] flex flex-col items-start'>
-        <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>[Gift Registry]</span>
+      <div className={[responsiveConstraintClasses, 'flex flex-col items-start'].join(" ")}>
+        <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>Gift Registry</span>
         <div className="flex flex-col items-center justify-center w-full mt-8">
           <span>
             We have a registry with Crate&Barrel
@@ -58,4 +65,4 @@ const Page: React.FC = () => {
   )
 }
 
-export default Page;
+export default withLayout(Page);
