@@ -62,7 +62,7 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
             <input type='radio' id='rsvpYes' name='rsvpYesNo' value="yes" />
             <label htmlFor='rsvpYes'>Yes, I will be there</label>
             <input type='radio' id='rsvpNo' name='rsvpYesNo' value="no" />
-            <label htmlFor='rsvpNo'>Sorry, I can't come</label>
+            <label htmlFor='rsvpNo'>Sorry, I can&#39;t come</label>
           {/* </select> */}
         </fieldset>
       </div>
