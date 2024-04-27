@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { IGroup } from "../typescript/interfaces";
+import { Group } from "../typescript/interfaces";
 import RSVPForm from "./RSVPForm";
 
 interface rsvpFormProps {
-  group: IGroup;
+  group: Group;
   rsvpCode: string;
 }
 

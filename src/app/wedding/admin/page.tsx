@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { IGroup, IPeople } from "../typescript/interfaces";
+import { Group, People } from "../typescript/interfaces";
 import { fetchGroups, fetchPeople } from "../db/queries";
 
 export const metadata = {
@@ -9,8 +9,8 @@ export const metadata = {
 }
 
 const Page: React.FC = async () => {
-  const people: IPeople[] = await fetchPeople()
-  const groups: IGroup[] = await fetchGroups()
+  const people: People[] = await fetchPeople()
+  const groups: Group[] = await fetchGroups()
 
   return (
     <main className='min-h-[85vh] flex flex-col items-center'>

@@ -2,7 +2,7 @@
 
 ### Description 
 
-This really *is not* for anyone else, It definitely can contain information for other people to utilize. This is mainly being created and curated though for my personal logging and dense data organizaiton so I have a way to organize my thoughts and goals in life... Like what Hobbies I'm currently into, or life events, projects I'm exploring. It should end up like if someone had their own personal "Everything App", features from instagram, twitter, youtube, facebook, blog, diary, portfolio but with much more capabilities because I retain control to all the applications so I can do some crazy back linking.
+This really *is not* for anyone else, It definitely can contain information for other people to utilize. This is mainly being created and curated though for my personal logging and dense data organization, so I have a way to organize my thoughts and goals in life... Like what Hobbies I'm currently into, or life events, projects I'm exploring. It should end up like if someone had their own personal "Everything App", features from instagram, twitter, youtube, facebook, blog, diary, portfolio but with much more capabilities because I retain control to all the applications so I can do some crazy back linking.
 
 ## Table of Contents
 2. [Design](#design)
@@ -17,7 +17,7 @@ This really *is not* for anyone else, It definitely can contain information for 
 
 ## Ideas
 
-A lot of these I plan to list on the [brandonnorsworthy.com.roadmap](https://www.brandonnorsworthy.com/roadmap) area of the site with some descriptions, maybe my notes will move over there.
+A lot of these I plan to list on the [brandonnorsworthy.com/roadmap](https://www.brandonnorsworthy.com/roadmap) area of the site with some descriptions, maybe my notes will move over there.
 - /hobbies
   - I want to categorise and aggressively note hobbies I dabble into to reflect on in the future.
 - /projects

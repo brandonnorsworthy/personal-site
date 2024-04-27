@@ -1,4 +1,4 @@
-export interface IPeople {
+export interface People {
   id: number;
   group_id: string;
   firstname: string;
@@ -6,9 +6,15 @@ export interface IPeople {
   status: boolean;
 }
 
-export interface IGroup {
+export interface Group {
   id: number;
   name: string;
   confirmed: boolean;
   hasScanned: boolean;
+}
+
+export interface FaqQuestion {
+  question: string;
+  answer: string;
+  link?: string;
 }

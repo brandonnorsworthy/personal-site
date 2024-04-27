@@ -19,7 +19,7 @@ const GlobalFooter: React.FC<GlobalFooterProps> = ({ responsiveConstraintClasses
                 href={link.href}
                 key={link.href + index}
                 target={link.openInNewTab ? '_blank' : '_self'}
-                className={`${index ? 'ml-4' : ''} font-bold underline text-wedding-secondary`}>
+                className={`${index ? 'ml-4' : ''} font-bold underline text-wedding-tertiary`}>
                 {link.label}
               </Link>
             ))

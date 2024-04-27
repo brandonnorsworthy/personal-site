@@ -17,9 +17,12 @@
     --color-wedding-primary-highlight: #A8C5C9;
     --color-wedding-primary: #6D8CA3;
     --color-wedding-primary-shadow: #45525F;
-    --color-wedding-secondary-highlight: #F5E4DF;
-    --color-wedding-secondary: #E2B2A0;
-    --color-wedding-secondary-shadow: #BD8062;
+    --color-wedding-secondary-highlight: #DFF2F5;
+    --color-wedding-secondary: #A8C5C9;
+    --color-wedding-secondary-shadow: #8DAEB3;
+    --color-wedding-tertiary-highlight: #F5E4DF;
+    --color-wedding-tertiary: #E2B2A0;
+    --color-wedding-tertiary-shadow: #BD8062;
     --color-wedding-gray-highlight: #FBFEFF;
     --color-wedding-gray: #E5ECEF;
   }

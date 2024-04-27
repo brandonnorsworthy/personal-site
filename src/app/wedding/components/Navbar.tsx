@@ -3,7 +3,7 @@ import React from "react";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="flex justify-center w-full h-16">
+    <nav className="z-10 flex justify-center w-full h-16">
       <div className="flex items-center justify-center w-full">
         <ul className="flex items-center justify-between w-full font-bold text-wedding-gray-highlight">
           <Link href="/wedding" className="hover:underline">Home</Link>

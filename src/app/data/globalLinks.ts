@@ -1,4 +1,4 @@
-type GlobalLink = {
+interface GlobalLink {
   name: string;
   description?: string;
   url: string;
@@ -9,7 +9,7 @@ type GlobalLink = {
   sublinks?: GlobalLinkSublink[];
 }
 
-type GlobalLinkSublink = {
+interface GlobalLinkSublink {
   name: string;
   description?: string;
   coming?: string;

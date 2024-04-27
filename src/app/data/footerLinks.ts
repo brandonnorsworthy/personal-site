@@ -1,4 +1,4 @@
-type FooterLink = {
+interface FooterLink {
   label: string;
   openInNewTab: boolean;
   href: string;
