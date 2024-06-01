@@ -11,7 +11,7 @@ const GlobalFooter: React.FC<GlobalFooterProps> = ({ responsiveConstraintClasses
   return (
     <footer className='flex justify-center w-full py-6'>
       <div className={[responsiveConstraintClasses, "flex flex-col items-start h-full"].join(" ")}>
-        <span>made by <Link href="/" className='font-bold underline'>brandon norsworthy</Link> ©️ 2024</span>
+        <span>made by <Link href="/" className='font-bold underline'>brandon norsworthy</Link></span>
         <div>
           {
             footerLinks.map((link, index) => (
@@ -19,7 +19,7 @@ const GlobalFooter: React.FC<GlobalFooterProps> = ({ responsiveConstraintClasses
                 href={link.href}
                 key={link.href + index}
                 target={link.openInNewTab ? '_blank' : '_self'}
-                className={`${index ? 'ml-4' : ''} font-bold underline text-wedding-secondary`}>
+                className={`${index ? 'ml-4' : ''} font-bold underline text-wedding-tertiary`}>
                 {link.label}
               </Link>
             ))

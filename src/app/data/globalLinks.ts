@@ -1,16 +1,15 @@
-type GlobalLink = {
+interface GlobalLink {
   name: string;
   description?: string;
   url: string;
-  coming: string;
+  coming?: string;
   model?: string;
-  override?: boolean;
   ignore?: boolean;
   externalLink?: boolean;
   sublinks?: GlobalLinkSublink[];
 }
 
-type GlobalLinkSublink = {
+interface GlobalLinkSublink {
   name: string;
   description?: string;
   coming?: string;
@@ -28,7 +27,6 @@ const globalLinks: GlobalLink[] = [
   {
     name: "Wedding",
     url: "/wedding",
-    coming: "Q1/2024",
   },
   {
     name: "Roadmap",

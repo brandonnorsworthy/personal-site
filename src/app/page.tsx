@@ -1,10 +1,15 @@
-import Link from 'next/link'
-import React, { useContext } from 'react'
+import React from 'react'
 
 import RouteTile from './components/RouteTile'
 import globalLinks from './data/globalLinks'
 import withLayout from './hocs/withLayout'
 import HomeScene from './components/HomeScene'
+
+export const metadata = {
+  title: 'Brandon\'s Personal Site',
+  description: 'Catch-all for Brandon\'s personal projects and interests',
+  image: "https://www.brandonnorsworthy.com/images/ComingSoon.jpg"
+}
 
 interface HomeProps {
   responsiveConstraintClasses: string;
@@ -24,6 +29,7 @@ const Home: React.FC<HomeProps> = ({ responsiveConstraintClasses }) => {
               title={link.name}
               description={link.description}
               model={link.model}
+              disable={link.coming ? true : false}
               href={link.url}
               key={link.url + index}
               externalLink={link.externalLink} />)
