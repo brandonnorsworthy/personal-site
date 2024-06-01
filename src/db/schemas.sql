@@ -3,8 +3,9 @@ CREATE TABLE wedding_invites_group (
   name VARCHAR,
   address VARCHAR,
   confirmed BOOLEAN,
-  hasScanned BOOLEAN,
-  created_at TIMESTAMP
+  has_scanned BOOLEAN,
+  created_at TIMESTAMP,
+  number_of_people INT
 );
 
 CREATE TABLE wedding_invites_people (

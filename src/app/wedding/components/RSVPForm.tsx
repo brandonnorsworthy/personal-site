@@ -15,7 +15,7 @@ interface rsvpFormProps {
 const RSVPForm: React.FC<rsvpFormProps> = (props) => {
   const { groupName, rsvpCode, onModalClose, maxNumberOfPeople } = props;
   const [coming, setComing] = useState(null);
-  const [numberOfPeople, setNumberOfPeople] = useState('');
+  const [numberOfPeople, setNumberOfPeople] = useState(0);
   const router = useRouter()
 
   const handleFormSubmit = (event) => {
@@ -76,7 +76,7 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
                 name='rsvpYesNo'
                 value='yes'
                 checked={coming}
-                onChange={(e) => setComing(true)} />
+                onChange={(e) => { setComing(true); setNumberOfPeople(1); }} />
               <label className='ml-2 select-none whitespace-nowrap' htmlFor='rsvpYes'>Yes, I will be there</label>
             </div>
             <div className='flex items-center ml-4'>
@@ -87,7 +87,7 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
                 name='rsvpYesNo'
                 value='no'
                 checked={!coming}
-                onChange={(e) => setComing(false)} />
+                onChange={(e) => { setComing(false); setNumberOfPeople(0); }} />
               <label className='ml-2 select-none whitespace-nowrap' htmlFor='rsvpNo'>Sorry, I can&#39;t come</label>
             </div>
           </fieldset>
