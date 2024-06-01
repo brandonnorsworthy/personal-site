@@ -29,10 +29,10 @@ const RSVPModal: React.FC<rsvpFormProps> = (props) => {
     <div className='absolute top-0 left-0 z-50 w-full overflow-y-hidden align-middle'>
       <div className='fixed flex items-center justify-center w-full h-full bg-gray-500/75'>
         {
-          group.confirmed
+          group.confirmed !== null
             ?
             <div className="z-10 w-full bg-white max-w-xl border-wedding-tertiary border-b-4 border-solid h-min md:w-[60%] lg:w-[65%] xl:w-[650px] p-12 flex flex-col items-start">
-              <span>Looks like you already RSVP&apos;d, please contact us if something changed <br/>Thanks, Brandon</span>
+              <span>Looks like you already RSVP&apos;d, please contact us if something changed <br />Thanks, Brandon</span>
               <div className="flex justify-center w-full mt-4">
                 <button className="px-8 py-2 text-lg font-bold text-white bg-wedding-tertiary" onClick={onModalClose}>Okay</button>
               </div>
