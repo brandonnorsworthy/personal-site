@@ -30,7 +30,7 @@ const Page: React.FC = async () => {
               <tr className="odd:bg-gray-200" key={group.id}>
                 <td className="px-4">{group.name}</td>
                 <td className="px-4">{group.confirmed ? 'Unknown' : group.confirmed ? 'Confirmed' : 'Not Confirmed'}</td>
-                <td className="px-4">{group.hasscanned ? 'Has Scanned' : 'Has Not Scanned'}</td>
+                <td className="px-4">{group.has_scanned ? 'Has Scanned' : 'Has Not Scanned'}</td>
               </tr>
             ))}
           </tbody>
