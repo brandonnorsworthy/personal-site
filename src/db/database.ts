@@ -28,8 +28,7 @@ if (DATABASE.CONNECTION_STRING) {
 export const queryHelper = (queryString: string, queryValues: any[] = [], expectSingleRow: boolean = false): Promise<any[] | any> => {
   return new Promise((resolve, reject) => {
     pool.query(queryString, queryValues, (error, result) => {
-      if (error)
-        return reject(new Error(`Error executing query: ${error.message}`));
+      if (error) return reject(new Error(`Error executing query: ${error.message}`));
 
       // if query worked but was empty
       if (!result || !result.rows || result.rows.length === 0) {
@@ -41,8 +40,7 @@ export const queryHelper = (queryString: string, queryValues: any[] = [], expect
         return resolve(null);
       }
 
-      if (expectSingleRow)
-        return resolve(result.rows[0]);
+      if (expectSingleRow) return resolve(result.rows[0]);
 
       return resolve(result.rows);
     });

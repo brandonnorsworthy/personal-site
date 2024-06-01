@@ -10,7 +10,8 @@ export interface Group {
   id: number;
   name: string;
   confirmed: boolean;
-  hasScanned: boolean;
+  has_scanned: boolean;
+  max_number_of_people: number;
 }
 
 export interface FaqQuestion {

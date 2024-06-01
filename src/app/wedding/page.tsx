@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import { Group } from './typescript/interfaces';
-import { fetchGroupById } from './db/queries';
+import { fetchGroupById, updateScannedStatus } from './db/queries';
 import RSVPModal from './components/RSVPModal';
 import Image from 'next/image';
 import withLayout from '../hocs/withLayout';
@@ -27,6 +27,7 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
   let group: Group;
   if (rsvpCode) {
     group = await fetchGroupById(rsvpCode);
+    await updateScannedStatus(rsvpCode);
   }
 
   return (
@@ -112,8 +113,8 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
       {/* Love Story */}
       <section className={[responsiveConstraintClasses, 'flex flex-col justify-center mb-28 w-full text-wedding-primary-shadow'].join(" ")}>
         <div className='flex flex-col items-center w-full'>
-          <h3 className='text-5xl font-bold'>OUR LOVE STORY</h3>
-          <h4 className='mt-5 text-4xl'>This is how it all started</h4>
+          <h3 className='text-5xl font-bold'>TIMELINE</h3>
+          <h4 className='mt-5 text-4xl'>Some of our milestones</h4>
         </div>
         <div className='flex flex-col items-center w-full'>
           {

@@ -5,33 +5,25 @@ export interface Event {
 
 const specialEvents: Event[] = [
   {
-    date: '28 March 2022',
-    description: 'We first met in New York City',
+    date: '3 March 2016',
+    description: 'We started dating',
   },
   {
-    date: '19 November 2022',
-    description: 'Brandon proposed in Paris',
+    date: '8 August 2020',
+    description: 'Moved in together',
   },
   {
-    date: '1 February 2023',
-    description: 'We bought our first home in Houston',
+    date: '25 November 2021',
+    description: 'First apartment',
   },
   {
-    date: '15 April 2023',
-    description: 'Madison started her new job at Google',
+    date: '23 January 2023',
+    description: 'We got engaged!',
   },
   {
-    date: '25 December 2023',
-    description: 'She said "Yes"',
+    date: '20 April 2023',
+    description: 'Our first home',
   },
-  {
-    date: '28 March 2022',
-    description: 'We first met in New York City',
-  },
-  {
-    date: '19 November 2022',
-    description: 'Brandon proposed in Paris',
-  }
 ]
 
 export default specialEvents;
