@@ -32,7 +32,7 @@ const RSVPModal: React.FC<rsvpFormProps> = (props) => {
           group.confirmed
             ?
             <div className="z-10 w-full bg-white max-w-xl border-wedding-tertiary border-b-4 border-solid h-min md:w-[60%] lg:w-[65%] xl:w-[650px] p-12 flex flex-col items-start">
-              <span>Looks like you already RSVP'd, please contact us if something changed <br/>Thanks, Brandon</span>
+              <span>Looks like you already RSVP&apos;d, please contact us if something changed <br/>Thanks, Brandon</span>
               <div className="flex justify-center w-full mt-4">
                 <button className="px-8 py-2 text-lg font-bold text-white bg-wedding-tertiary" onClick={onModalClose}>Okay</button>
               </div>
