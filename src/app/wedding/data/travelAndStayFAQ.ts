@@ -5,7 +5,7 @@ const faqs = [
   },
   {
     question: 'Is there a group rate or discount available for lodging?',
-    answer: 'Not at this moment, if you are looking for a hotel I would recommend the Galleria area/"Uptown".',
+    answer: 'Not at this moment, if you are looking for a hotel I would recommend the Galleria/"Uptown" area.',
   },
   {
     question: 'What areas of Houston are recommended for an Airbnb or Vrbo?',

@@ -28,7 +28,7 @@ const RSVPModal: React.FC<rsvpFormProps> = (props) => {
   if (!isOpen) return null;
 
   return (
-    <div className='absolute top-0 left-0 z-50 w-full overflow-y-hidden align-middle'>
+    <div className='absolute top-0 left-0 z-[500] w-full overflow-y-hidden align-middle'>
       <div className='fixed flex items-center justify-center w-full h-full bg-gray-500/75'>
         {
           group.confirmed !== null
