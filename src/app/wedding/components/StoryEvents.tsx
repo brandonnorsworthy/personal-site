@@ -10,8 +10,8 @@ interface StoryEventProps {
 const StoryEvents: React.FC<StoryEventProps> = ({ event, index }) => {
   const dateElement =
     <>
-      <h3 className='text-2xl font-bold'>{event.date}</h3>
-      <p className='text-2xl'>{event.description}</p>
+      <h3 className='text-lg font-bold md:text-2xl'>{event.date}</h3>
+      <p className='text-lg md:text-2xl'>{event.description}</p>
     </>
 
   let blobRotation = Math.floor(Math.random() * 360)
@@ -33,17 +33,17 @@ const StoryEvents: React.FC<StoryEventProps> = ({ event, index }) => {
 
   return (
     <div className='flex items-center justify-center w-full mt-10'>
-      <div className="flex flex-col items-end flex-grow w-full">
+      <div className="flex flex-col items-end flex-grow w-full text-right">
         {
           index % 2 !== 0
             ? dateElement
             : imageElement
         }
       </div>
-      <div className="flex justify-center flex-grow px-20">
+      <div className="flex justify-center px-4 md:px-20">
         <Cube alt="spacer" width={32} height={32} className="rotate-45 fill-wedding-gray" />
       </div>
-      <div className="flex flex-col items-start flex-grow w-full">
+      <div className="flex flex-col items-start flex-grow w-full text-left">
         {
           index % 2 === 0
             ? dateElement

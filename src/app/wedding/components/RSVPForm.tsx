@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useRouter } from 'next/navigation'
 import flowerImages from '../../../../public/svg/flowers';
 import weddingService from '../../services/wedding';
 
@@ -16,7 +15,6 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
   const { groupName, rsvpCode, onModalClose, maxNumberOfPeople } = props;
   const [coming, setComing] = useState(null);
   const [numberOfPeople, setNumberOfPeople] = useState(0);
-  const router = useRouter()
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -35,7 +33,6 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
     }
 
     onModalClose();
-    router.push('/wedding')
   };
 
   const handleNumberOfPeopleChange = (event) => {
@@ -95,18 +92,21 @@ const RSVPForm: React.FC<rsvpFormProps> = (props) => {
 
         {
           coming &&
-          <input
-            title='How many people are attending?'
-            className='w-full p-1 pl-2 mt-5 font-medium border border-t-0 border-b-2 border-x-0 text-wedding-primary-shadow border-b-wedding-primary-highlight-2'
-            type='number'
-            min={1}
-            max={maxNumberOfPeople}
-            onChange={handleNumberOfPeopleChange}
-            onBlur={handleNumberOfPeopleBlur}
-            value={numberOfPeople}
-            placeholder={`How many people are attending... limit ${maxNumberOfPeople}`}
-            id='number-attending'
-            name='numberAttending' />
+          <div className="flex flex-col w-full">
+            <label className='w-full mt-5 text-wedding-primary-shadow' htmlFor='number-attending'>RSVP for how many? (Limit {maxNumberOfPeople})</label>
+            <input
+              title='How many people are attending?'
+              className='w-full p-1 pl-2 mt-5 font-medium border-2 text-wedding-primary-shadow border-wedding-tertiary-highlight'
+              type='number'
+              min={1}
+              max={maxNumberOfPeople}
+              onChange={handleNumberOfPeopleChange}
+              onBlur={handleNumberOfPeopleBlur}
+              value={numberOfPeople}
+              placeholder={`How many people are attending... limit ${maxNumberOfPeople}`}
+              id='number-attending'
+              name='numberAttending' />
+          </div>
         }
 
         <div className='flex justify-center w-full mt-8'>

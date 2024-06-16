@@ -4,9 +4,9 @@ import CollapsableContainer from "../components/CollapsableContainer";
 import Navbar from "../components/Navbar";
 import QuestionAnswerTiles from "../components/QuestionAnswerTiles";
 
-import weddingFAQ from "../data/weddingFAQ";
-import stayAndActiviesFAQ from "../data/stayAndActiviesFAQ";
 import generalFAQ from "../data/generalFAQ";
+import travelAndStayFAQ from "../data/travelAndStayFAQ";
+import dinnerFAQ from "../data/dinnerFAQ";
 import withLayout from "../../hocs/withLayout";
 
 export const metadata = {
@@ -28,23 +28,24 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
       </div>
       <div className={[responsiveConstraintClasses, 'flex flex-col items-start'].join(" ")}>
         <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>Frequently Asked Questions</span>
+        <span className="mt-8">Any other questions you have but don&apos;t find just text me (please look first), This page will continue to be updated</span>
         <CollapsableContainer
-          title='Wedding Details'
-          description='Questions specifically about the wedding day.'
-          className='w-full mt-8 bg-wedding-secondary'>
-          <QuestionAnswerTiles questions={weddingFAQ} />
-        </CollapsableContainer>
-        <CollapsableContainer
-          title='Stay & Activities'
-          description='Questions about the beach houses, meals, and activities during the weekend.'
-          className='w-full mt-8 bg-wedding-secondary'>
-          <QuestionAnswerTiles questions={stayAndActiviesFAQ} />
-        </CollapsableContainer>
-        <CollapsableContainer
-          title='General'
-          description='Other miscellaneous questions.'
+          title='General Wedding Details'
+          description='General Ceremony Information.'
           className='w-full mt-8 bg-wedding-secondary'>
           <QuestionAnswerTiles questions={generalFAQ} />
+        </CollapsableContainer>
+        <CollapsableContainer
+          title='Travel and Stay'
+          description='Arrivals and Accommodations Information.'
+          className='w-full mt-8 bg-wedding-secondary'>
+          <QuestionAnswerTiles questions={travelAndStayFAQ} />
+        </CollapsableContainer>
+        <CollapsableContainer
+          title='Food and Digestion'
+          description='Grubbin Information.'
+          className='w-full mt-8 bg-wedding-secondary'>
+          <QuestionAnswerTiles questions={dinnerFAQ} />
         </CollapsableContainer>
       </div>
     </main>
