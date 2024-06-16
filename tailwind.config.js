@@ -28,13 +28,13 @@ module.exports = {
         'gray-highlight': '#cacaca',
       },
       'wedding': {
-        'primary-highlight-2': '#EDF6F8',
-        'primary-highlight': '#A8C5C9',
-        'primary': '#6D8CA3',
-        'primary-shadow': '#45525F',
-        'secondary-highlight': '#DFF2F5',
-        'secondary': '#A8C5C9',
-        'secondary-shadow': '#8DAEB3',
+        'primary-highlight-2': '#edf8f3',
+        'primary-highlight': '#a8c9ba',
+        'primary': '#6da38f',
+        'primary-shadow': '#455f52',
+        'secondary-highlight': '#dff5e9',
+        'secondary': '#a8c9b9',
+        'secondary-shadow': '#8db3a0',
         'tertiary-highlight': '#F5E4DF',
         'tertiary': '#E2B2A0',
         'tertiary-shadow': '#BD8062',
@@ -50,7 +50,9 @@ module.exports = {
       'yellow': colors.yellow,
     },
     boxShadow: {
-      'inset-t-b': 'inset 0 30px 30px -15px rgba(0, 0, 0, 1), inset 0 -30px 30px -15px rgba(0, 0, 0, 1)'
+      'inset-t-b': 'inset 0 30px 30px -15px rgba(0, 0, 0, 1), inset 0 -30px 30px -15px rgba(0, 0, 0, 1)',
+      'lg': '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+      '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
     },
     dropShadow: {
       'routeTilesTitle': '0 1px 2px rgba(0, 0, 0, 0.75)',

@@ -35,7 +35,7 @@ export const fetchGroups = async () => {
 export const updateScannedStatus = async (rsvpId: string) => {
   try {
     return await queryHelper(`UPDATE wedding_invites_group
-    SET has_scanned = true
+    SET has_scanned = true, scanned_at = NOW(), updated_at = NOW()
     WHERE id = $1`, [rsvpId]);
   } catch (error) {
     console.error('Error updating group:', error);
@@ -46,7 +46,7 @@ export const updateScannedStatus = async (rsvpId: string) => {
 export const updateWeddingGroup = async (rsvpId: string, confirmed: boolean, numberOfPeople: number) => {
   try {
     return await queryHelper(`UPDATE wedding_invites_group
-    SET confirmed = $2, number_of_people = $3
+    SET confirmed = $2, number_of_people = $3, updated_at = NOW()
     WHERE id = $1`, [rsvpId, confirmed, numberOfPeople]);
   } catch (error) {
     console.error('Error updating group:', error);

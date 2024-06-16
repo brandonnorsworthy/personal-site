@@ -46,7 +46,7 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
             href={registry}
             target="_blank"
             rel="noopener noreferrer">
-            <div className='w-80 h-80 border-solid border-8 border-wedding-secondary-shadow absolute rotate-[17deg] z-20 left-[55%] overflow-hidden '>
+            <div className='w-[50vw] h-[50vw] md:w-80 md:h-80 border-solid border-8 border-wedding-secondary-shadow absolute rotate-[17deg] z-20 left-[40vw] md:left-[55%] overflow-hidden '>
               <Image
                 src={cityWalk}
                 alt='Brandon and Madison infront of downtown houston, texas'
@@ -55,7 +55,7 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
                 width={400}
                 height={400} />
             </div>
-            <div className='w-80 h-80  border-solid border-8 absolute -rotate-[10deg] z-10 right-[45%] flex justify-center items-center overflow-hidden'>
+            <div className='w-[50vw] h-[50vw] md:w-80 md:h-80  border-solid border-8 absolute -rotate-[10deg] z-10 right-[40vw] md:right-[45%] flex justify-center items-center overflow-hidden'>
               <Image
                 src={crateAndBarrelLogo}
                 alt='crate and barrel logo'

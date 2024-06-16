@@ -27,7 +27,7 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
   let group: Group;
   if (rsvpCode) {
     group = await fetchGroupById(rsvpCode);
-    await updateScannedStatus(rsvpCode);
+    updateScannedStatus(rsvpCode);
   }
 
   return (
@@ -37,7 +37,7 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
         <div className={responsiveConstraintClasses}>
           <Navbar />
           <div className='flex flex-col justify-center w-full mt-24 text-wedding-gray-highlight'>
-            <h2 className='z-10 text-6xl font-bold text-center'>Brandon and Madison</h2>
+            <h2 className='z-10 text-4xl font-bold text-center md:text-6xl'>Brandon and Madison</h2>
             <h3 className='z-10 mt-6 text-2xl text-center'>are getting married</h3>
             <div className='absolute left-0 flex justify-between w-full h-full overflow-hidden top-20'>
               <div className='relative flex-1 flex-grow z-20 h-[90%]'>
@@ -68,9 +68,9 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
 
       {/* Save the Date */}
       <section className={[responsiveConstraintClasses, 'flex flex-col items-center justify-center'].join(" ")}>
-        <h1 className='font-bold text-wedding-primary text-7xl'>26 October 2024</h1>
+        <h1 className='text-4xl font-bold text-wedding-primary md:text-7xl'>26 October 2024</h1>
         <h3 className='mt-3 text-2xl font-bold text-center text-wedding-primary-shadow'>in Houston, Texas</h3>
-        <div className="relative w-full h-64">
+        <div className="relative w-full mt-20 h-36 md:h-64 md:mt-0">
           <div className='absolute -top-[50%] flex justify-around w-full'>
             <flowerImages.flower15
               alt='hero img'
@@ -83,12 +83,12 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
       </section>
 
       {/* About Us */}
-      <section className='my-[250px] h-[600px] flex justify-center w-full bg-wedding-primary-highlight-2'>
+      <section className='my-[50px] md:my-[250px] h-[600px] flex justify-center w-full bg-wedding-primary-highlight-2'>
         <div className={[responsiveConstraintClasses, 'relative flex items-center justify-between'].join(" ")}>
           <div className='absolute left-0 flex flex-col items-center justify-end top-10'>
             <div className='max-w-[440px] flex flex-col'>
               <h3 className='mt-10 text-4xl font-bold text-wedding-primary-shadow'>Madison</h3>
-              <p className='mt-10 text-wedding-primary-shadow'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eum quaerat fuga cum. Nihil odit repellat ad rem sed magni nostrum nam officiis? Dolorem iure saepe repellendus, quas optio quis.</p>
+              {/* <p className='mt-10 text-wedding-primary-shadow'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eum quaerat fuga cum. Nihil odit repellat ad rem sed magni nostrum nam officiis? Dolorem iure saepe repellendus, quas optio quis.</p> */}
               <Image
                 src={weddingImages.focusMadison}
                 alt='headshot of madison'
@@ -104,17 +104,17 @@ const Page: React.FC<PageProps> = async ({ searchParams, responsiveConstraintCla
                 className='w-full select-none border-b-[10px] border-solid border-wedding-tertiary-highlight'
                 placeholder='blur' />
               <h3 className='mt-10 text-4xl font-bold text-wedding-primary-shadow'>Brandon</h3>
-              <p className='mt-10 mb-10 text-wedding-primary-shadow'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eum quaerat fuga cum. Nihil odit repellat ad rem sed magni nostrum nam officiis? Dolorem iure saepe repellendus, quas optio quis.</p>
+              {/* <p className='mt-10 mb-10 text-wedding-primary-shadow'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias eum quaerat fuga cum. Nihil odit repellat ad rem sed magni nostrum nam officiis? Dolorem iure saepe repellendus, quas optio quis.</p> */}
             </div>
           </div>
         </div>
       </section>
 
       {/* Love Story */}
-      <section className={[responsiveConstraintClasses, 'flex flex-col justify-center mb-28 w-full text-wedding-primary-shadow'].join(" ")}>
+      <section className={[responsiveConstraintClasses, 'flex flex-col justify-center mb-14 md:mb-28 w-full text-wedding-primary-shadow'].join(" ")}>
         <div className='flex flex-col items-center w-full'>
-          <h3 className='text-5xl font-bold'>TIMELINE</h3>
-          <h4 className='mt-5 text-4xl'>Some of our milestones</h4>
+          <h3 className='text-3xl font-bold md:text-5xl'>TIMELINE</h3>
+          <h4 className='mt-2 text-2xl md:text-4xl md:mt-5'>Some of our milestones</h4>
         </div>
         <div className='flex flex-col items-center w-full'>
           {

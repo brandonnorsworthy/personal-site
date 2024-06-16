@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Group } from "../typescript/interfaces";
+import { useRouter } from 'next/navigation'
 import RSVPForm from "./RSVPForm";
 
 interface rsvpFormProps {
@@ -12,6 +13,7 @@ interface rsvpFormProps {
 const RSVPModal: React.FC<rsvpFormProps> = (props) => {
   const { group, rsvpCode } = props;
   const [isOpen, setIsOpen] = React.useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -19,7 +21,7 @@ const RSVPModal: React.FC<rsvpFormProps> = (props) => {
 
   const onModalClose = () => {
     document.body.style.overflow = 'auto';
-
+    router.push('/wedding');
     setIsOpen(false);
   }
 
