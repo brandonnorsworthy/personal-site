@@ -29,6 +29,7 @@ const Page: React.FC<PageProps> = ({ responsiveConstraintClasses }) => {
       <div className={[responsiveConstraintClasses, 'flex flex-col items-start'].join(" ")}>
         <span className='mt-12 text-4xl font-bold text-wedding-secondary-shadow'>Frequently Asked Questions</span>
         <span className="mt-8">Any other questions you have but don&apos;t find just text me (please look first), This page will continue to be updated</span>
+        <span className="mt-2">Last Updated: June 26, 2024</span>
         <CollapsableContainer
           title='General Wedding Details'
           description='General Ceremony Information.'

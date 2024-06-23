@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     question: 'Will there be any pre-wedding or post-wedding events that I should be aware of?',
-    answer: 'Apart from the post-ceremony dinner, there aren\'t any formal events.',
+    answer: 'Saturday, September 21, is the wedding shower, invites will arrive near end of July. Apart from that there arn\'t any formal wedding events',
   },
   {
     question: 'Is the wedding indoors or outdoors?',
