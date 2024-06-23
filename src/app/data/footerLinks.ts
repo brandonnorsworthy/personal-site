@@ -8,7 +8,7 @@ const footerLinks: FooterLink[] = [
   {
     label: "github",
     openInNewTab: true,
-    href: "https://github.com/brandonnorsworthy/personal-site"
+    href: "https://github.com/brandonnorsworthy"
   },
   {
     label: "design",

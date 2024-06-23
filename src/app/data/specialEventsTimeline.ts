@@ -6,7 +6,7 @@ export interface Event {
 
 const specialEvents: Event[] = [
   {
-    date: '3 March 2016',
+    date: '25 March 2016',
     description: 'We started dating',
     icon: 'engage'
   },
